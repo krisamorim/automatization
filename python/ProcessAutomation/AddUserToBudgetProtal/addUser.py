@@ -3,7 +3,7 @@ from time import sleep
 import openpyxl
 import os
 import pyautogui as pyau
-import clipboard
+import clipboard as clb
 #--------------------------------definir variaveis-------------------------
 os.chdir(r'Z:\Códigos\AddUserPortalOrcamento')  #linha necessária p/
 pathOs = os.getcwd()

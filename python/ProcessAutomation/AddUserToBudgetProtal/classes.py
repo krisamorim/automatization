@@ -8,12 +8,10 @@ def altTab(time):
   sleep(time)
   pyau.hotkey('alt', 'tab')
 
-
 def ctrlC():
   sleep(.6)
   pyau.hotkey('ctrl', 'c')
   sleep(7)
-
 
 def writeWithEnter(txtInput):
   pyau.write(txtInput)
@@ -21,17 +19,14 @@ def writeWithEnter(txtInput):
   pyau.press('enter')
   sleep(1)
 
-
 def writeWithEnterWithInterval(txtInput, time):
   pyau.write(txtInput, interval=time)
   sleep(1)
   pyau.press('enter')
   sleep(1)
 
-
 def cls():
   Popen('cls', shell=True)
-
 
 def pause(txt):
   altTab(1)
@@ -40,19 +35,16 @@ def pause(txt):
     exit()
   altTab(1)
 
-
 def mousePosition(time):
   sleep(time)
   x = pyau.position()
   print(x)
-
 
 def irPaginaUserDeLoja():
   pyau.click(85, 408)  #clica no sistema
   sleep(1)
   pyau.click(82, 568)  #clica no lojas
   sleep(5)
-
 
 def checkIfuser():
   xx = ""
@@ -65,7 +57,6 @@ def checkIfuser():
   return True if xx == "pertence" or xx == "pertence " else False
   clp.copy(oldPast)
 
-
 def checkPageLoad(whatCheck, whatCheck2, x, y):
   oldCLipBoard = clp.paste()
   load = ''
@@ -77,7 +68,6 @@ def checkPageLoad(whatCheck, whatCheck2, x, y):
     sleep(1)
     load = clp.paste().lstrip().rstrip()
   clp.copy(oldCLipBoard)
-
 
 def validaEstabelecimento(store):
   oldCopy = clp.paste()
@@ -108,7 +98,6 @@ def validaEstabelecimento(store):
     print(cv[0:2])
     writeWithEnterWithInterval(cv[0:2], .9)
     sleep(.5)
-
 
 def addUser(store, name, cpf):
   sleep(1)
@@ -192,7 +181,6 @@ def addUser(store, name, cpf):
       sleep(.7)
       pyau.click(300, 207)  #save
       sleep(4)
-
 
 def checkRDS():
   Popen(["cls"], shell=True)
