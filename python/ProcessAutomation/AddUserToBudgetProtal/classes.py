@@ -48,8 +48,8 @@ def irPaginaUserDeLoja():
 
 def checkIfuser():
   xx = ""
-  oldPast = clp.paste()
-  sleep(1)
+  oldPast = clp.paste()#save clipboard
+  sleep(.5)
   pyau.doubleClick(533, 220)
   sleep(.5)
   ctrlC()
@@ -80,11 +80,10 @@ def validaEstabelecimento(store):
   pyau.hotkey('ctrl', 'c')
   sleep(.6)
   cv = clp.paste().lstrip().rstrip()
-  valida = True if cv[0:2] == store else False
-  if valida == True:
+  if cv[0:2] == store:
     pyau.hotkey('ctrl', 'a')
-    sleep(.07)
-    print(store)
+    sleep(.7)
+    writeWithEnter(store)
   else:
     writeWithEnter(store)
     sleep(.5)
@@ -99,10 +98,10 @@ def validaEstabelecimento(store):
     writeWithEnterWithInterval(cv[0:2], .9)
     sleep(.5)
 
-def addUser(store, name, cpf):
+def addUser(store, name, cpf, ipRestrict):
   sleep(1)
   checkPageLoad('Consulta', 'Consulta', 452, 219)
-  pyau.click(259, 344)  #Botão de +
+  pyau.click(259, 344)#click on + button
   checkPageLoad('CPF', 'CPF', 433, 343)
   pyau.click(460, 348)
   sleep(.7)
@@ -112,17 +111,19 @@ def addUser(store, name, cpf):
   if checkIfuserAlreadyExist == True:
     sleep(1)
     pyau.click(922, 303)  #clica no ok da mensagem
-    sleep(5)
+    sleep(2)
+    checkPageLoad('CPF', 'CPF', 433, 343)
     pyau.click(469, 386)  #clica no campo de nome
-    sleep(1)
+    sleep(.5)
     pyau.press(['tab', 'tab'])
     sleep(1)
-    writeWithEnterWithInterval('sim', .8)
+    writeWithEnter(ipRestrict)
     sleep(.5)
     pyau.press('tab')
     sleep(1)
-    validaEstabelecimento(store)
-    sleep(.6)
+    if store[0] == "0":
+      validaEstabelecimento(store)
+      sleep(.6)
     pyau.press('tab')
     pyau.press('space')
     writeWithEnterWithInterval('orcam', .9)

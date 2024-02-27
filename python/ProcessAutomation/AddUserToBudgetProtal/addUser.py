@@ -24,12 +24,10 @@ for linha in sheet:  #criando array com Nº da loja, nome de user e cpf
   xx = []
   store = ''
   loja = str(linha[0].value)
-  store = '0' + loja if len(loja) < 2 else str(
-      loja
-  )  #tranforma numero em string e add zero nma frente se for loja de 1 a 9
+  store = '0' + loja if len(loja) < 2 else str(loja)  #tranforma numero em string e add zero na frente se for loja de 1 a 9
   xx = {'loja': store, 'Name': linha[1].value, 'CPF': linha[2].value}
   workArray.append(xx)  #add cada linha va variavel workArray
-  cl.addUser(workArray[1]['loja'], workArray[1]['Name'], workArray[1]['CPF'])
+  cl.addUser(workArray[1]['loja'], workArray[1]['Name'], workArray[1]['CPF'],"sim")
   print(xx)
   sleep(4)
 
