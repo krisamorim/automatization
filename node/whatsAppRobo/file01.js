@@ -1,3 +1,4 @@
+// https://youtu.be/cMsC7a9ToDk
 const qrcode = require('qrcode-terminal');
 
 const { client } = require('whatsapp-web.js');
@@ -10,6 +11,12 @@ client.on('qr', qr => {
 client.on('ready', () => {
     console.log('client is ready!');
 });
+
+client.on('message', message =>{
+    if(message.body === '!ping'){
+        client.sendMessage(message.from, 'pong');
+    }
+})
 
 client.initialize();
 
