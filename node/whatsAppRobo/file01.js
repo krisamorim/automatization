@@ -13,9 +13,19 @@ client.on('ready', () => {
 });
 
 client.on('message', message =>{
-    if(message.body.toLocaleLowerCase() === '!ping'){
-        client.sendMessage(message.from, 'pong');
+    if(message.body.toLocaleLowerCase() === 'Olá'){
+        client.sendMessage(message.from, 'Me chamo XXXX');
+        client.sendMessage(message.from, 'Como popsso ajudar?\n1- Status\n2-Outros');
     }
+
+    if(message.body.toLocaleLowerCase() === '1'){
+        client.sendMessage(message.from, 'Finalizado');
+    }
+
+    if(message.body.toLocaleLowerCase() === '2'){
+        client.sendMessage(message.from, 'Não tem outros');
+    }
+
 })
 
 client.initialize();
