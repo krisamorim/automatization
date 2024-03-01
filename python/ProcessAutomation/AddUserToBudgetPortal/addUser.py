@@ -1,13 +1,24 @@
 import classes as cl
-from time import sleep
 import openpyxl
 import os
-import pyautogui as pyau
-import clipboard as clb
+from pathlib import Path as pt
+
 #--------------------------------definir variaveis-------------------------
-os.chdir(r'Z:\Códigos\AddUserPortalOrcamento')  #linha necessária p/
-pathOs = os.getcwd()
-file = pathOs + '\\a.xlsx'
+cl.sleep(1)
+print('os.path.curdir: '+os.path.curdir)
+cl.sleep(1)
+print(os.path.abspath(os.path.curdir))
+cl.sleep(50)
+os.chdir(r'python\ProcessAutomation\AddUserToBudgetPortal')  #linha necessária p/
+cl.cls()
+cl.sleep(1)
+print(os.path.abspath('a.xlsx'))
+cl.sleep(90)
+# pathOs = os.getcwd()
+print(os.getcwd())
+cl.sleep(3)
+cl.sleep(300)
+file = os.getcwd() + '\\a.xlsx'
 tempoDecarregamento = 5
 workbook = openpyxl.load_workbook(file)
 sheet = workbook['Validos'].iter_rows(min_row=2)
@@ -15,10 +26,9 @@ workArray = [{}]
 
 #----Begin
 cl.cls()
-sleep(.7)
+cl.sleep(.7)
 cl.altTab(.6)
-cl.pause(
-    'Você já está com a pagina do portal aberta e LOGADA?\n1- SIM\n2- NÃO\n>>')
+cl.pause('Você já está com a pagina do portal aberta e LOGADA?\n1- SIM\n2- NÃO\n>>')
 # cl.checkRDS()
 for linha in sheet:  #criando array com Nº da loja, nome de user e cpf
   xx = []
@@ -29,7 +39,7 @@ for linha in sheet:  #criando array com Nº da loja, nome de user e cpf
   workArray.append(xx)  #add cada linha va variavel workArray
   cl.addUser(workArray[1]['loja'], workArray[1]['Name'], workArray[1]['CPF'],"sim")
   print(xx)
-  sleep(4)
+  cl.sleep(4)
 
 # cl.mousePosition(3)
 cl.altTab(.5)

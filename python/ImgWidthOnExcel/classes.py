@@ -1,5 +1,6 @@
 import pyautogui as pyau
 from time import sleep
+
 def selectMenu(menu,submenu,loop):
     menuX = 1
     menuY = 1
