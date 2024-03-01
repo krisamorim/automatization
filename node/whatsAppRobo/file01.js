@@ -13,7 +13,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message =>{
-    if(message.body === '!ping'){
+    if(message.body.toLocaleLowerCase() === '!ping'){
         client.sendMessage(message.from, 'pong');
     }
 })
