@@ -13,7 +13,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message =>{
-    if(message.body.toLocaleLowerCase() === 'Olá'){
+    if(message.body.toLocaleLowerCase() != 'Olá'){
         client.sendMessage(message.from, 'Me chamo XXXX');
         client.sendMessage(message.from, 'Como popsso ajudar?\n1- Status\n2-Outros');
     }
