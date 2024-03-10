@@ -14,6 +14,32 @@ options.add_argument('--enable-chrome-browser-cloud-management')
 
 brownser.get(vari.linkSeniorXLSX)
 
+def locateOnScreenFunc(files, tentativas, timeToWaiting):#informe array with img's path, amount of attempts and time to wait bettwen attempts
+    status = False
+    for file in files:
+        if status == True:
+            print('Imagem encontrada')
+        else:
+            contador=0
+            attempts=contador+1
+            while contador < tentativas:
+                print(f'Tentativa Nº {attempts}')
+                try:
+                    location = pyau.locateOnScreen(file, confidence=.9)
+                    print(f'image {file} found!')
+                except pyau.ImageNotFoundException:
+                    print(f'Image {file} not found')
+                    location = False
+                    contador+=1
+                    attempts+=1
+                if location != False:
+                    contador = tentativas
+                    status = True
+                    pyau.moveTo(location, duration=.4)
+                    timeToWaiting = .1
+                sleep(timeToWaiting)
+    return status
+
 def selectAndClik(id, idValue):
     sleep(1)
     attempts = 1
@@ -52,7 +78,7 @@ def selectAndClikRight(id, idValue):
             worked = True
     return status
 
-def selectAndType(id, idValue, txt, enter):
+def selectAndType(id, idValue, txt):
     sleep(1)
     attempts = 1
     worked = False
@@ -73,24 +99,9 @@ def selectAndType(id, idValue, txt, enter):
             pyau.press('enter')
     return status
 
-def searchAndClickIMG(path):
+def searchAndClickIMG(files, tentativas, timeToWaiting):
     sleep(1)
-    attempts = 1
-    worked = False
-    while worked == False:
-        sleep(2)
-        try:
-            print(f'Trying do locate {path}. Attempts nº {attempts} of 3')
-            pyau.click(pyau.locateCenterOnScreen(path))
-            worked = True
-            status = 'ok'
-        except:
-            print("locate do id: ",path, " it dosen't work")
-            attempts +=1
-            status  = 'Nok'
-        if attempts == 3:
-            worked = True
-    return status
-
-
-    sleep(90)
+    locateOnScreenFunc(files, tentativas, timeToWaiting)
+    sleep(.5)
+    pyau.click()
+    sleep(.5)
