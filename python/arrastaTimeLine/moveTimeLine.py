@@ -3,17 +3,22 @@ import variablesMoveTimeLine as var
 
 
 func.cls()
-func.altTab()
+func.altTab(.5)
 # func.setZoom('60')
-if func.locateOnScreenFunc(var.imgList, 4, 2) == False:
-    print('Bar not found')
-    exit()
-else:
-    func.moveBar(1)
+# if func.locateOnScreenFunc(var.imgList, 4, 2) == False:
+#     print('Bar not found')
+#     exit()
+# else:
+func.moveBarAndCopyChart(1)
 # func.sleep(.6)
-# for i in range(1,x):
-#     pyau.press('right')
-#     # sleep(.1)
-# # setZoom('50')
+# setZoom('50')
 # func.sleep(1)
 # func.altTab(.6)
+# func.posicaoMouse(3)
+# func.posicaoMouse(3)
+#Point(x=808, y=420)
+#Point(x=806, y=452)
+#Point(x=810, y=541)
+#Point(x=807, y=516)
+#Point(x=807, y=546)
+#Point(x=808, y=603)
