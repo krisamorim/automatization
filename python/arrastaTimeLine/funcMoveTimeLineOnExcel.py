@@ -99,7 +99,8 @@ def increasingProgressBar(XprogBar, YprogBar, increasing):
 
 def moveBarAndCopyChart(projNumber):
     sleep(.4)
-    # pyau.click()
+    pyau.click()
+    sleep(.4)
     match projNumber:
         case 1:#Senior project
             positions = [420, 452, 484, 516, 540, 575, 600]
