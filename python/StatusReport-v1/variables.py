@@ -17,4 +17,9 @@ ImgbuttonConfirmOpenExcelApp = path.abspath(ImglinkProjetoSenior).replace('projS
 listImgbuttonConfirmOpenExcelApp = [ImgbuttonConfirmOpenExcelApp]
 ImgbuttonSimdoAlerta = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2',r'buttonSimdoAlerta')
 listImgbuttonSimdoAlerta = [ImgbuttonSimdoAlerta]
+ImgexcelOntaskBar = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2',r'excelOntaskBar')
+listexcelOntaskBar = [ImgexcelOntaskBar]
+
+ImgbuttonEditExcel = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2',r'buttonEditExcel')
+listbuttonEditExcel = [ImgbuttonEditExcel]
 

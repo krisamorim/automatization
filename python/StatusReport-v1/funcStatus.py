@@ -14,6 +14,11 @@ options.add_argument('--enable-chrome-browser-cloud-management')
 
 brownser.get(vari.linkSeniorXLSX)
 
+def maxWindow():
+    pyau.hotkey('alt','space')
+    sleep(.6)
+    pyau.press('x')
+
 def locateOnScreenFunc(files, tentativas, timeToWaiting):#informe array with img's path, amount of attempts and time to wait bettwen attempts
     status = False
     for file in files:
