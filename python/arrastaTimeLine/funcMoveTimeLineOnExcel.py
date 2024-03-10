@@ -52,3 +52,12 @@ def locateOnScreenFunc(files, tentativas, timeToWaiting):#informe array with img
                     timeToWaiting = .1
                 sleep(timeToWaiting)
     return status
+
+def moveBar(projName):
+    sleep(.4)
+    pyau.click()
+    match projName:
+        case 1:
+            for i in range(1,12):
+                pyau.press('right')
+
