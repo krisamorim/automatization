@@ -1,3 +1,4 @@
+from credntials import linkSeniorXLSXOnSharePoint
 from time import sleep
 import pyautogui as pyau
 import clipboard as clp
@@ -12,7 +13,7 @@ brownser = webdriver.Chrome(service=service, options=options)
 options.binary_location = vari.brownserPath
 options.add_argument('--enable-chrome-browser-cloud-management')
 
-brownser.get(vari.linkSeniorXLSX)
+brownser.get(linkSeniorXLSXOnSharePoint)
 
 def maxWindow():
     pyau.hotkey('alt','space')
