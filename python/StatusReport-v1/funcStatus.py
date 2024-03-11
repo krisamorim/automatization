@@ -14,6 +14,8 @@ def setProj(ProjectNumbver):
             moveBar = vari.SRmoveBar
             increaseBar =  vari.SRincreaseBar
             lastPointChart = vari.SRlastPointChart
+            slideTitle = vari.SRslideTitle
+            downImgOnPPT = vari.SRdownImgOnPPT
         case 2:
             urlProject = cred.linkCVXLSXOnSharePoint
             listProgressBar = vari.CVpositions
@@ -21,7 +23,10 @@ def setProj(ProjectNumbver):
             moveBar = vari.CVmoveBar
             increaseBar =  vari.CVincreaseBar
             lastPointChart = vari.CVlastPointChart
-    return {'urlProject': urlProject, 'listProgressBar': listProgressBar, 'beginningChart': beginningChart, 'moveBar': moveBar, 'increaseBar': increaseBar, 'lastPointChart': lastPointChart} 
+            slideTitle = vari.CVslideTitle
+            downImgOnPPT = vari.CVdownImgOnPPT
+
+    return {'urlProject': urlProject, 'listProgressBar': listProgressBar, 'beginningChart': beginningChart, 'moveBar': moveBar, 'increaseBar': increaseBar, 'lastPointChart': lastPointChart, 'slideTitle': slideTitle, 'downImgOnPPT': downImgOnPPT} 
 
 def cls():
     Popen(["cls"], shell=True)
@@ -34,6 +39,17 @@ def altTab(time):
 
 def pause(txt):
     altTab(.7)
+    optiX = int(input(txt))
+    if optiX == 2:
+        exit()
+    altTab(.7)
+
+def doublePause(txt):
+    pyau.keyDown('alt')
+    pyau.press(['tab','tab'])
+    sleep(.8)
+    pyau.keyUp('alt')
+    sleep(1)
     optiX = int(input(txt))
     if optiX == 2:
         exit()
@@ -138,5 +154,67 @@ def moveBarAndCopyChart(projNumber):
     for y in positions:
         increasingProgressBar(804, y, increaseBar)
     goToCcopyChart(beginningChart,lastPointChart)
-    pause('Check the changes and press 1 to continue or 2 to exit\n>> ')
+    doublePause('Check the changes and press 1 to continue or 2 to exit\n>> ')
 #---Function above to edit em copy chart in excel file
+
+def gotToSlide(projNumber):
+    sleep(.7)
+    pyau.hotkey('ctrl','l')
+    sleep(.6)
+    pyau.hotkey('ctrl','a')
+    sleep(.6)
+    pyau.press('del')
+    sleep(.6)
+    pyau.write(setProj(projNumber)['slideTitle'])
+    sleep(.1)
+    pyau.press(['tab','tab','enter'])
+    sleep(.1)
+    pyau.press(['esc','esc','esc','esc'])
+    sleep(.6)
+
+def updateImageOnPPT(projNumber):
+    sleep(.5)
+    pyau.click(416, 340)
+    sleep(.7)
+    pyau.press('del')
+    sleep(.5)
+    pyau.hotkey('ctrl','alt','v')
+    sleep(.5)
+    pyau.press(['tab','b','b'])
+    sleep(.5)
+    pyau.press('enter')
+    sleep(.5)
+    pyau.doubleClick(416, 340)
+    sleep(0.5)
+    pyau.click(1264, 110)
+    sleep(.7)
+    pyau.write('32,8')
+    sleep(1)
+    pyau.press('enter')
+    sleep(.5)
+    pyau.click(1105, 79)
+    sleep(.7)
+    pyau.click(1133, 120)
+    sleep(.7)
+    for i in range(1,setProj(projNumber)['downImgOnPPT']):
+        pyau.press('down')
+    pyau.click(813, 72)
+    sleep(1.5)
+    pyau.click(789, 165)
+    sleep(.5)
+    #set animation
+    pyau.click(417, 44) #animation menu
+    sleep(.7)
+    pyau.click(615, 95) #erease option
+    sleep(.7)
+    pyau.click(778, 107) #efect option
+    sleep(.7)
+    pyau.click(795, 306) #down option efect
+    sleep(.7)
+    sleep(1.2)
+    for i in range(1,9):
+        pyau.click(1254, 93) #move animatioin to up
+    sleep(.7)
+    for i in range(1,3):
+        pyau.click(1233, 119) #move animation do down
+    sleep(1)

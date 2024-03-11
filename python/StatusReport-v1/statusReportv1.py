@@ -46,8 +46,12 @@ while True:
     else:
         fst.moveBarAndCopyChart(optionProject)
     
-    # #going to PowerPoint
-    # fst.searchAndClickIMG(vari.listpowerPointOntaskBar, 3, 2)#click in powerPoint on taskbar
+    #going to PowerPoint
+    fst.searchAndClickIMG(vari.listpowerPointOntaskBar, 3, 2)#click in powerPoint on taskbar
+    fst.gotToSlide(optionProject)
+    fst.updateImageOnPPT(optionProject)
+
+
 
 
     #past chart

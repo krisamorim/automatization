@@ -10,6 +10,8 @@ SRbeginningChart = 'C6'
 SRmoveBar = 12
 SRincreaseBar =  1.2
 SRlastPointChart = [1292, 538]
+SRslideTitle = 'PROJETO SENIOR – CRONOGRAMA'
+SRdownImgOnPPT = 16
 #-------------- CV PORJECT ------------#
 ImglinkProjetoSenior = path.abspath(__file__).replace('variables.py',r'imgs\projSeniorLinkStatus2.png')
 CVListImglinkProjetoSenior = [ImglinkProjetoSenior]
@@ -18,7 +20,8 @@ CVbeginningChart = 'C6'
 CVmoveBar = 12
 CVincreaseBar =  1.2
 CVlastPointChart = [1292, 538]
-
+CVslideTitle = 'PROJETO CONTRAVALE – CRONOGRAMA'
+CVdownImgOnPPT = 16
 #-------------- IMG e LIST OPEN ON EXCEL ------------#
 ImgbuttonOpenExcelonSharePoint = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2',r'buttonOpenExcelonSharePoint')
 listImgbuttonOpenExcelonSharePoint = [ImgbuttonOpenExcelonSharePoint]
@@ -32,8 +35,6 @@ ImgexcelOntaskBar = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkSt
 listexcelOntaskBar = [ImgexcelOntaskBar]
 ImgbuttonEditExcel = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2',r'buttonEditExcel')
 listbuttonEditExcel = [ImgbuttonEditExcel]
-ImgpowerPointOntaskBar = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2',r'powerPointOntaskBar')
-listpowerPointOntaskBar = [ImgpowerPointOntaskBar]
 
 #------------------------ To check excel is open ----------------#
 ImgtatusBarExcel = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2',r'statusBarExcel')
@@ -46,3 +47,6 @@ imgLineBar2 = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2'
 imgLineBar3 = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2', r'timeLineBar3')
 ListLineBar = [imgLineBar1, imgLineBar2, imgLineBar3]
 
+#----------------- POWERPOINT -----------------#
+ImgpowerPointOntaskBar = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2',r'powerPointOntaskBar')
+listpowerPointOntaskBar = [ImgpowerPointOntaskBar]
