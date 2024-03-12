@@ -1,20 +1,21 @@
 import funcTestAutom as fta
 import variables as var 
 
-fta.cls()
-#--------------------------------EXECUTANDO-------------------------
-
 #Vendend 1 cafeteira + 3 caps vendidas de uma unica vez + 2 caps vindidas separadamente
-
+fta.cls()
 # fta.searchAndClick(var.PDVonTaskbar)
 # fta.sleep(5)
-# print(var.cenarios)
+
 cenarios = var.importDadosExcel()
 for cenario in cenarios:
-    print('Executando cenário: {} '.format(cenario['Id cenário'], ))
-    # print(cenario['Produto'],'\n')
-    print(cenario['Quantidade'],'\n')
-    fta.sleep(5)
+    id = str(cenario['Id cenário']).strip()
+    cenario = cenario['O que']
+    print(f'Executando cenário: {id}-{cenario}')
+    
+#     # print(cenario['Produto'],'\n')
+#     print(cenario['Quantidade'],'\n')
+#     fta.sleep(5)
+
 # fta.primeiroProdu('1','1033862')
 # fta.venda('3','1030048')
 # fta.venda('1','1030049')
