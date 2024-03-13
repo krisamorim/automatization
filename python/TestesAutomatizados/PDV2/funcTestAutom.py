@@ -130,3 +130,28 @@ def loginPdv(passPDV):#to type password
             pyau.press('enter')
             sleep(7)    
 
+def locateOnScreenFunc(files, tentativas, timeToWaiting):#informe array with img's path, amount of attempts and time to wait bettwen attempts
+    status = False
+    for file in files:
+        if status == True:
+            print('Imagem encontrada')
+        else:
+            contador=0
+            attempts=contador+1
+            while contador < tentativas:
+                print(f'Tentativa Nº {attempts}')
+                try:
+                    location = pyau.locateOnScreen(file)
+                    print(f'image {file} found!')
+                except pyau.ImageNotFoundException:
+                    print(f'Image {file} not found')
+                    location = False
+                    contador+=1
+                    attempts+=1
+                if location != False:
+                    contador = tentativas
+                    status = True
+                    pyau.moveTo(location, duration=.4)
+                    timeToWaiting = .1
+                sleep(timeToWaiting)
+    return status

@@ -3,15 +3,33 @@ import variables as var
 
 #Vendend 1 cafeteira + 3 caps vendidas de uma unica vez + 2 caps vindidas separadamente
 fta.cls()
+fta.sleep(1)
+# fta.sleep(10)
+fta.altTab(1)
+print(var.FieldPassword)
+import os
+print()
+os.chdir(r'C:\Users\Milium\Documents\TestesAutomatizados\automatization\python\TestesAutomatizados\PDV2')
+fta.locateOnScreenFunc(var.FieldPassword, 2, 3)
 # fta.searchAndClick(var.PDVonTaskbar)
 # fta.sleep(5)
-
-cenarios = var.importDadosExcel()
-for cenario in cenarios:
-    id = str(cenario['Id cenário']).strip()
-    cenario = cenario['O que']
-    print(f'Executando cenário: {id}-{cenario}')
-    
+# executados = []
+# cenarios = var.importDadosExcel()
+# finalizada = False
+# for cenario in cenarios:
+#     id = str(cenario['Id cenário']).strip()
+#     print(f'Primeiro produto {id}')
+#     if id != executados[-1]:
+#         print('Finalizar venda')
+#         fta.sleep(5)
+#         finalizada = True
+#     else:
+#         print('add segundo item')
+#         fta.sleep(5)
+#     executados.append(id)
+#     print(executados)
+#     fta.sleep(10)
+# print(cenarios) 
 #     # print(cenario['Produto'],'\n')
 #     print(cenario['Quantidade'],'\n')
 #     fta.sleep(5)

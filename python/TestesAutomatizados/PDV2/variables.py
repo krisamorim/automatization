@@ -1,11 +1,11 @@
 from os import path
 from openpyxl import load_workbook
 
-currentFilePath = path.abspath(__file__)
+currentFilePath1 = path.abspath(__file__)
+currentFilePath2 = currentFilePath1.replace('c:','C:')
 currentFileName = 'variables.py'
-currentPath = currentFilePath.replace(currentFileName,"")
 PDVonTaskbar = path.abspath('imgs\PDVtaskBar.png')
-FieldPassword = path.abspath('imgs\FieldPassword.png')
+FieldPassword = currentFilePath2.replace('variables.py','imgs\FieldPassword.png')
 passPDV = '123456'
 
 def importDadosExcel():
