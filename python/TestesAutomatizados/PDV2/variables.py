@@ -1,12 +1,18 @@
 from os import path
 from openpyxl import load_workbook
 
-currentFilePath1 = path.abspath(__file__)
-currentFilePath2 = currentFilePath1.replace('c:','C:')
+currentFilePath = path.abspath(__file__)
 currentFileName = 'variables.py'
+currentPath = currentFilePath.replace(currentFileName,"")
 PDVonTaskbar = path.abspath('imgs\PDVtaskBar.png')
-FieldPassword = currentFilePath2.replace('variables.py','imgs\FieldPassword.png')
+#login page varaibles
+FieldPassword = currentFilePath.replace('variables.py','imgs\loginPage\FieldPassword.png')
+FieldPasswordButton = FieldPassword.replace('FieldPassword','FieldPasswordButton')
+listImgsLoginPage = [FieldPasswordButton, FieldPassword]
 passPDV = '123456'
+#sales screen variables
+salesScreenCupom  = currentFilePath.replace('variables.py','imgs\salesScreen\salesScreenCupom.png')
+listImgsSalesScreen = [salesScreenCupom]
 
 def importDadosExcel():
     arrayExcel= []

@@ -86,50 +86,6 @@ def finalizarVenda():
     sleep(7)
     clickNo()
 
-def searchImg(img):
-    attempt = 1
-    status = ''
-    xy = ''
-    while attempt <= 3:
-        try:
-            print(f'Trying to locate {img}. Attempt {attempt} of 3:')
-            xy = pyau.locateCenterOnScreen(img, confidence=.6)
-            status = 'ok'
-            attempt = 4
-        except:
-            print('not found')
-            attempt +=1
-            status = 'Nok'
-        sleep(2)
-    return [status, xy]
-        
-def searchAndClick(pathImg):
-    continuar = 2
-    while continuar == 2:
-        xy = searchImg(pathImg)
-        if xy[0] =='Nok':
-            print('PDVonTaskBar not found')
-            continuar = pausa()
-        else: 
-            pyau.click(xy[1])
-            continuar = 3
-        sleep(1)
-
-def loginPdv(passPDV):#to type password
-    continuar = 2
-    while continuar == 2:
-        xy = searchImg(var.FieldPassword)
-        if xy[0] =='Nok':
-            print('LonginPage not found')
-            continuar = pausa()
-        else: 
-            pyau.click(xy[1])
-            sleep(.5)
-            pyau.write(passPDV)
-            sleep(.5)
-            pyau.press('enter')
-            sleep(7)    
-
 def locateOnScreenFunc(files, tentativas, timeToWaiting):#informe array with img's path, amount of attempts and time to wait bettwen attempts
     status = False
     for file in files:
@@ -155,3 +111,51 @@ def locateOnScreenFunc(files, tentativas, timeToWaiting):#informe array with img
                     timeToWaiting = .1
                 sleep(timeToWaiting)
     return status
+
+def loginPdv():#to type password
+    status = True
+    if locateOnScreenFunc(var.listImgsLoginPage,2,2):
+        pyau.click()
+        sleep(.5)
+        pyau.write(var.passPDV)
+        sleep(.7)
+        pyau.press('enter')
+        sleep(10)
+    else:
+        status = False
+        sleep(1)
+        pyau.press('f2')
+        print('login page not found. Searching sales screen')
+        if locateOnScreenFunc(var.listImgsSalesScreen,2,2):
+            print('Pagina de vendas encontrada')
+
+
+#apagar
+# def searchImg(img):
+#     attempt = 1
+#     status = ''
+#     xy = ''
+#     while attempt <= 3:
+#         try:
+#             print(f'Trying to locate {img}. Attempt {attempt} of 3:')
+#             xy = pyau.locateCenterOnScreen(img, confidence=.6)
+#             status = 'ok'
+#             attempt = 4
+#         except:
+#             print('not found')
+#             attempt +=1
+#             status = 'Nok'
+#         sleep(2)
+#     return [status, xy]
+        
+# def searchAndClick(pathImg):
+#     continuar = 2
+#     while continuar == 2:
+#         xy = searchImg(pathImg)
+#         if xy[0] =='Nok':
+#             print('PDVonTaskBar not found')
+#             continuar = pausa()
+#         else: 
+#             pyau.click(xy[1])
+#             continuar = 3
+#         sleep(1)
