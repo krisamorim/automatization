@@ -16,7 +16,10 @@ for cenario in cenarios:
     quantidade = str(cenario['Quantidade']).strip()
     
     if idAtual=='':
+        print('entrou no if')
+        fta.sleep(20)
         fta.primeiroProdu(quantidade,produto)
+
     elif idAtual==id:        
         fta.venda(quantidade,produto)
     else:
