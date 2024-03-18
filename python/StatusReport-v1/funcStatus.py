@@ -57,7 +57,7 @@ def doublePause(txt):
 
 def maxWindow():
     pyau.hotkey('alt','space')
-    sleep(.8)
+    sleep(1)
     pyau.press('x')
 
 def locateOnScreenFunc(files, tentativas, timeToWaiting):#informe array with img's path, amount of attempts and time to wait bettwen attempts

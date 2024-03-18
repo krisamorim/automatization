@@ -10,7 +10,7 @@ SRbeginningChart = 'C6'
 SRmoveBar = 12
 SRincreaseBar =  1.2
 SRlastPointChart = [1292, 538]
-SRslideTitle = 'PROJETO SENIOR – CRONOGRAMA'
+SRslideTitle = 'PROJETO SENIOR '+'–'+' CRONOGRAMA'
 SRdownImgOnPPT = 16
 #-------------- CV PORJECT ------------#
 ImglinkProjetoSenior = path.abspath(__file__).replace('variables.py',r'imgs\projSeniorLinkStatus2.png')
