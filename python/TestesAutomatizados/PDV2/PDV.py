@@ -17,13 +17,15 @@ for cenario in cenarios:
     
     if idAtual=='':
         print('entrou no if')
-        fta.sleep(20)
         fta.primeiroProdu(quantidade,produto)
 
     elif idAtual==id:        
         fta.venda(quantidade,produto)
     else:
         fta.finalizarVenda()
+        fta.sleep(20)
+        fta.primeiroProdu(quantidade,produto)
+
     idAtual = id
     
 # fta.primeiroProdu('1','1033862')

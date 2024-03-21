@@ -121,6 +121,9 @@ def loginPdv():#to type password
         sleep(.7)
         pyau.press('enter')
         sleep(10)
+        if locateOnScreenFunc(var.listImgsLoginPage,2,2):
+            pyau.click()
+            sleep(1)
     else:
         status = False
         sleep(1)
