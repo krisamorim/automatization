@@ -8,3 +8,5 @@ pytho3 -m venv NomeDoAmbient
 
 #Carregar ambiente virtual
 source venv\bin\activate
+
+ pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pypdf2 
