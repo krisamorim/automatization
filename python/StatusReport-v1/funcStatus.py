@@ -5,6 +5,9 @@ from subprocess import Popen
 import credntials as cred
 import variables as vari
 
+def __init__():
+    print('')
+
 def setProj(ProjectNumbver):
     match ProjectNumbver:
         case 1:
@@ -25,6 +28,15 @@ def setProj(ProjectNumbver):
             lastPointChart = vari.CVlastPointChart
             slideTitle = vari.CVslideTitle
             downImgOnPPT = vari.CVdownImgOnPPT
+        case 3:
+            urlProject = cred.linkOrcamXLSXOnSharePoint
+            listProgressBar = vari.budGetpositions
+            beginningChart = vari.budGetbeginningChart
+            moveBar = vari.budGetmoveBar
+            increaseBar =  vari.budGetincreaseBar
+            lastPointChart = vari.budGetlastPointChart
+            slideTitle = vari.budGetslideTitle
+            downImgOnPPT = vari.budGetdownImgOnPPT
 
     return {'urlProject': urlProject, 'listProgressBar': listProgressBar, 'beginningChart': beginningChart, 'moveBar': moveBar, 'increaseBar': increaseBar, 'lastPointChart': lastPointChart, 'slideTitle': slideTitle, 'downImgOnPPT': downImgOnPPT} 
 
@@ -68,7 +80,7 @@ def locateOnScreenFunc(files, tentativas, timeToWaiting):#informe array with img
         else:
             contador=0
             attempts=contador+1
-            while contador < tentativas:
+            while contador < tentativas:#enquanto o contador for menor que o numero de tentativas informado na função
                 print(f'Tentativa Nº {attempts}')
                 try:
                     location = pyau.locateOnScreen(file, confidence=.9)
@@ -82,7 +94,7 @@ def locateOnScreenFunc(files, tentativas, timeToWaiting):#informe array with img
                     contador = tentativas
                     status = True
                     pyau.moveTo(location, duration=.4)
-                    timeToWaiting = .1
+                    timeToWaiting = .2
                 sleep(timeToWaiting)
     return status
 
@@ -96,7 +108,14 @@ def searchAndClickIMG(files, tentativas, timeToWaiting):
 #---Function below to edit em copy chart in excel file
 def setZoom(value):
     sleep(.6)
-    pyau.click(1341,707)
+    pyau.press('alt')
+    sleep(.6)
+    pyau.press('k')
+    sleep(.6)
+    pyau.press('b')
+    sleep(.3)
+    pyau.press('o')
+    # pyau.click(1341,707)
     sleep(.5)
     pyau.press('tab')
     sleep(.5)
@@ -106,6 +125,10 @@ def setZoom(value):
     sleep(.6)
     pyau.hotkey('ctrl','home')
     sleep(.6)
+    pyau.press('alt')
+    sleep(.6)
+    pyau.press('c')
+    sleep(.3)
 
 def goToCcopyChart(cell,lastPointChart):
     setZoom('50')
@@ -140,7 +163,7 @@ def increasingProgressBar(XprogBar, YprogBar, increasing):
 
 def moveBarAndCopyChart(projNumber):
     sleep(.4)
-    pyau.click()
+    pyau.doubleClick()
     sleep(.4)
     moveBar = setProj(projNumber)['moveBar']
     positions = setProj(projNumber)['listProgressBar']
@@ -218,3 +241,4 @@ def updateImageOnPPT(projNumber):
     for i in range(1,3):
         pyau.click(1233, 119) #move animation do down
     sleep(1)
+

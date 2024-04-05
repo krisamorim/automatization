@@ -12,6 +12,7 @@ SRincreaseBar =  1.2
 SRlastPointChart = [1292, 538]
 SRslideTitle = 'PROJETO SENIOR '+'–'+' CRONOGRAMA'
 SRdownImgOnPPT = 16
+
 #-------------- CV PORJECT ------------#
 ImglinkProjetoSenior = path.abspath(__file__).replace('variables.py',r'imgs\projSeniorLinkStatus2.png')
 CVListImglinkProjetoSenior = [ImglinkProjetoSenior]
@@ -22,6 +23,18 @@ CVincreaseBar =  1.2
 CVlastPointChart = [1292, 538]
 CVslideTitle = 'PROJETO CONTRAVALE – CRONOGRAMA'
 CVdownImgOnPPT = 16
+
+#-------------- BUDGET PORJECT ------------#
+ImglinkProjetoSenior = path.abspath(__file__).replace('variables.py',r'imgs\projSeniorLinkStatus2.png')
+budGetListImglinkProjetoSenior = [ImglinkProjetoSenior]
+budGetpositions = [420, 452, 484, 516, 540, 575, 600]
+budGetbeginningChart = 'C6'
+budGetmoveBar = 11
+budGetincreaseBar =  1.2
+budGetlastPointChart = [1292, 538]
+budGetslideTitle = 'PROJETO ORÇAMENTO – CRONOGRAMA'
+budGetdownImgOnPPT = 16
+
 #-------------- IMG e LIST OPEN ON EXCEL ------------#
 ImgbuttonOpenExcelonSharePoint = path.abspath(ImglinkProjetoSenior).replace('projSeniorLinkStatus2',r'buttonOpenExcelonSharePoint')
 listImgbuttonOpenExcelonSharePoint = [ImgbuttonOpenExcelonSharePoint]
