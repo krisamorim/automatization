@@ -27,11 +27,11 @@ CVdownImgOnPPT = 16
 #-------------- BUDGET PORJECT ------------#
 ImglinkProjetoSenior = path.abspath(__file__).replace('variables.py',r'imgs\projSeniorLinkStatus2.png')
 budGetListImglinkProjetoSenior = [ImglinkProjetoSenior]
-budGetpositions = [420, 452, 484, 516, 540, 575, 600]
-budGetbeginningChart = 'C6'
-budGetmoveBar = 11
-budGetincreaseBar =  1.2
-budGetlastPointChart = [1292, 538]
+budGetpositions = [405, 438]
+budGetbeginningChart = 'B5'
+budGetmoveBar = 26
+budGetincreaseBar =  5.0
+budGetlastPointChart = [1294, 553]
 budGetslideTitle = 'PROJETO ORÇAMENTO – CRONOGRAMA'
 budGetdownImgOnPPT = 16
 
