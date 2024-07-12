@@ -97,6 +97,12 @@ def gotTourlWithOperaOpen(url):
     pyau.press('enter')
     sleep(4)
     print('Esperando pagina carregar...')
+    pyau.click(x=1556, y=121) #click aleatório
+    pyau.hotkey('ctrl','+')
+    sleep(1)
+    pyau.click(x=1556, y=121)
+    print('Redefinindo zoom...')
+    sleep(1)
     pyau.click(x=424, y=185) #clicar nos filtros
     sleep(1)
     print('Clicando no menu filtro')
