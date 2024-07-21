@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
    # import os
 
 # class Cliente:
@@ -12,3 +13,21 @@
 		
 # cliente = Cliente("Lira", "lira@gmail.com", "basic")
 # print(cliente.nome)
+
+import pyautogui as py
+from time import sleep
+
+nomeCliente = input('Qual o nome do cliente:\n>>')
+
+fileCompleto = "C:\\etiqueta.docx"
+py.hotkey('win','r')
+sleep(2)
+py.write(fileCompleto)
+sleep(1)
+py.press('enter')
+sleep(3)
+py.hotkey('ctrl','right')
+sleep(1)
+py.press('right')
+sleep(1)
+py.write(nomeCliente)

@@ -6,8 +6,10 @@ from time import sleep
 def ouvir():
     reconhecedor = sr.Recognizer()
     with sr.Microphone() as source:
-        print("Diga alguma coisa...")
-        # reconhecedor.adjust_for_ambient_noise(source)
+        # print("Diga alguma coisa...")
+        print("Qual comando?")
+
+        reconhecedor.adjust_for_ambient_noise(source)
         audio = reconhecedor.listen(source)
 
     try:
@@ -27,11 +29,11 @@ def falar(texto):
     engine.runAndWait()
 
 if __name__ == "__main__":
-    falar("Qual o comando?")
+    falar("Olá meu grande mestre, me chamo Ana Lúcia.")
     while True:
         entrada = ouvir().lower()
         if "parar" in entrada:
-            falar("Até mais!")
+            falar("Até logo meu grande mestre!")
             break
         if "executar ping" in entrada:
             Popen(["ping", '8.8.8.8'], shell=True)
