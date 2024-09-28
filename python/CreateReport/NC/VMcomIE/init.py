@@ -1,12 +1,13 @@
 # import pyautogui
 import variables as vari
-import creden as cred
+import creden
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
+import handleFile
 
 
 # Caminho para o WebDriver do Microsoft Edge
@@ -78,10 +79,10 @@ def localizarEpreencher(identification, texto, opcao):
         # Se o elemento não for encontrado, imprime a mensagem no terminal
         print("Elemento não localizado")
 
-localizarEpreencher(vari.inputUserName, cred.userName1, 2)#preencher userName
+localizarEpreencher(vari.inputUserName, creden.userName1, 2)#preencher userName
 localizarEclickar(vari.buttonLogin, 2) #clicar no botão Login
 sleep(1) #aguarda input de password aparecer
-localizarEpreencher(vari.inputPassWord, cred.passName1, 2)
+localizarEpreencher(vari.inputPassWord, creden.passName1, 2)
 localizarEclickar(vari.buttonLoginID, 1) #clicar no botão Login
 sleep(3) #aguardar
 localizarEclickar(vari.buttonDismissAutnID, 1) #Negar ativar autent de 2 fat
@@ -92,10 +93,18 @@ localizarEclickar(vari.buttonAceptCookies, 2) #aceitar cookies
 sleep(2) #aguardar
 driver.get(vari.urlFiltros)#ir p/ filtros
 sleep(2) #aguardar
+handleFile.apagaSeExiste(creden.arquivo_origem)
+sleep(2) #aguardar
 localizarEclickar(vari.buttonExpandirExport, 2) #expandir exportar
 sleep(2) #aguardar
 localizarEclickar(vari.buttonExportCSV, 2) # exportar CSV filter fields
-sleep(10)
+sleep(5)
 
 # Fechar o navegador após a captura
-# driver.quit()
+driver.quit()
+
+#Copiar arquivo para pasta de status atual
+handleFile.copyTofolderReport()
+sleep(2)
+handleFile.renameAndMove(creden.arquivo_origem, creden.pasta_destino)
+sleep(1)
