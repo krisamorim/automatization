@@ -4,6 +4,8 @@ import creden  # Importa as variáveis de creden.py
 
 # Função principal
 def inserir_dados_no_banco():
+    print('-'*20)
+    print('Iniciando alimentação do banco de dados')
     try:
         # Conexão com o banco de dados
         conexao = psycopg2.connect(
@@ -83,8 +85,4 @@ def inserir_dados_no_banco():
             conexao.close()
         print("Conexão ao banco de dados encerrada.")
 
-# Executa a função principal
-# if __name__ == "__main__":
-    # inserir_dados_no_banco()
-inserir_dados_no_banco()
 
