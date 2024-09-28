@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from time import sleep
 import handleFile
+import updateDB
 
 
 # Caminho para o WebDriver do Microsoft Edge
@@ -107,4 +108,5 @@ driver.quit()
 handleFile.copyTofolderReport()
 sleep(2)
 handleFile.renameAndMove(creden.arquivo_origem, creden.pasta_destino)
-sleep(1)
+sleep(2)
+updateDB.inserir_dados_no_banco()
