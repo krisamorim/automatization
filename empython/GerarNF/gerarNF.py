@@ -1,6 +1,7 @@
 import pyautogui
 from time import sleep
 import pyperclip
+import dadosSensiveis as dds
 
 
 #FUNÕES-----------------------------------------------------------
@@ -19,19 +20,18 @@ def tabAndWrite(txt, tabs, NoEnter=""):
 
 
 #VARIAVEIS-----------------------------------------------------------
-kris_cnpj = '57776962000154'
-empresaKris_name = "KRISHNAMURTIR AMORIM FURTADO LTDA"
-linx_cnpj =  "53.464.762/0001-05"
-empresaLinx_name = "LINX AUTOMOTIVO LTDA"
-email_1 = 'kris.a.furtado@gmail.com'
-email_2 = 'krishnamurtir.f@edu.pucrs.br'
-cnae = '1.03'
-# texto = 'Referente à 1ª quinzena de junho (de 16/03/25 à 31/03/25) do projeto DPASCHOAL\nDADOS BANCÁRIOS PARA DEPÓSITO:\nBanco: Bradesco S.A. (237)\nAG: 2232\nCC: 71362-7'
-textoincial = 'Referente a 2ª quinzena de agosto (de 15/08/25 à 31/08/25) do projeto DPASCHOAL'
-textDadsosbancTit = 'DADOS BANCARIOS PARA DEPOSITO:\nBanco: Bradesco S.A. (237)'
-textDadsosbanAg = 'AG: 2232'
-textDadsosbanCc = 'CC: 71362-7'
-valor = "762500"
+kris_cnpj = dds.kris_cnpj
+empresaKris_name = dds.empresaKris_name
+cliente_cnpj =  dds.cliente_cnpj
+empresaCliente_name = dds.empresaCliente_name
+email_1 = dds.email_1
+email_2 = dds.email_2
+cnae = dds.cnae
+textoincial = dds.textoincial
+textDadsosbancTit = dds.textDadsosbancTit
+textDadsosbanAg = dds.textDadsosbanAg
+textDadsosbanCc = dds.textDadsosbanCc
+valor = dds.valor
 
 
 sleep(1)
@@ -45,9 +45,9 @@ tabAndWrite(email_1, 1, "NoEnter")
 sleep(1)
 tabAndWrite(email_2, 1, "NoEnter")
 sleep(1)
-tabAndWrite(linx_cnpj, 1, "NoEnter")
+tabAndWrite(cliente_cnpj, 1, "NoEnter")
 sleep(1)
-tabAndWrite(empresaLinx_name, 1, "NoEnter")
+tabAndWrite(empresaCliente_name, 1, "NoEnter")
 sleep(1)
 tabAndWrite(cnae, 1, "NoEnter")
 sleep(1)
