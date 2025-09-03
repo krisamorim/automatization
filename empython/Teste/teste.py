@@ -17,17 +17,27 @@
 import pyautogui as py
 from time import sleep
 
-nomeCliente = input('Qual o nome do cliente:\n>>')
+# nomeCliente = input('Qual o nome do cliente:\n>>')
 
-fileCompleto = "C:\\etiqueta.docx"
-py.hotkey('win','r')
-sleep(2)
-py.write(fileCompleto)
-sleep(1)
-py.press('enter')
-sleep(3)
-py.hotkey('ctrl','right')
-sleep(1)
-py.press('right')
-sleep(1)
-py.write(nomeCliente)
+# fileCompleto = "C:\\etiqueta.docx"
+# py.hotkey('win','r')
+# sleep(2)
+# py.write(fileCompleto)
+# sleep(1)
+# py.press('enter')
+# sleep(3)
+# py.hotkey('ctrl','right')
+# sleep(1)
+# py.press('right')
+# sleep(1)
+# py.write(nomeCliente)
+
+for i in range(3):
+   sleep(1)
+   # print(py.position())
+   py.click(234,1536) #3 pontos
+   sleep(2)
+   py.click(273,1687) #yes
+   sleep(1)
+   py.click(1135,1664) #yes
+   sleep(1)
