@@ -9,6 +9,8 @@ from selenium.webdriver.firefox.service import Service
 
 # Configurações opcionais do Firefox
 options = webdriver.FirefoxOptions()
+firefox_profile_path = r'C:\Users\krisf\AppData\Local\Mozilla\Firefox\Profiles\72xxqwy5.default-release'  # Caminho do meu perfil
+options.set_preference('profile', firefox_profile_path)
 
 # Inicializa o Firefox
 service = webdriver.FirefoxService(executable_path=r'C:\Program Files\SeleniumMozila\geckodriver.exe')
@@ -20,7 +22,9 @@ driver.maximize_window() # maximiza de verdade
 driver.get('https://linxprd.crm2.dynamics.com/main.aspx?pagetype=entitylist&etn=msdyn_workorder&viewid=63e0ccf4-8db5-e711-80f9-e0071b664ec1&viewType=1039&forceUCI=1&appid=0f6e740a-7a48-4536-872f-268ac257e0c7')
 time.sleep(5)  # espera a página carregar
 
-# Localiza elementos
+#-------------------------------------- Funções --------------------------------------
+
+# Função para Localiza elementos
 def localizar_elemento(driver, element_id: str, element_xpath: str):
     """
     Tenta localizar um elemento primeiro pelo ID, depois pelo XPath.
@@ -63,38 +67,41 @@ def localizar_elemento(driver, element_id: str, element_xpath: str):
             return None
         else:
             print("Opção inválida, tente novamente.")
-#preenchendo username
-userName = localizar_elemento(driver, variables.fieldUsername_ID, variables.fieldUsername_XPATH)
-if userName:
-    userName.send_keys(pw.userK)
+
+# Função para logar
+def logando():
+    #preenchendo username
+    userName = localizar_elemento(driver, variables.fieldUsername_ID, variables.fieldUsername_XPATH)
+    if userName:
+        userName.send_keys(pw.userK)
+        time.sleep(2)
+        # userName.submit() #está enviado com campo vazio
+
+    #pressionando botão next
+    nextButton = localizar_elemento(driver, variables.buttonNext_ID, variables.buttonNext_XPATH)
+    if nextButton:
+        nextButton.click()
+
+    #preenchendo password
+    time.sleep(2)  
+    password = localizar_elemento(driver, variables.fieldPassword_ID, variables.fieldPassword_XPATH)
+    if password:
+        password.send_keys(pw.passK)
+        password.submit()   
+
+    #pressionando botão Sign in
     time.sleep(2)
-    # userName.submit() #está enviado com campo vazio
+    nextButton = localizar_elemento(driver, variables.buttonNext_ID, variables.buttonNext_XPATH)
+    if nextButton:
+        nextButton.click()
+    time.sleep(25)
 
-#pressionando botão next
-nextButton = localizar_elemento(driver, variables.buttonNext_ID, variables.buttonNext_XPATH)
-if nextButton:
-    nextButton.click()
-
-#preenchendo password
-time.sleep(2)  
-password = localizar_elemento(driver, variables.fieldPassword_ID, variables.fieldPassword_XPATH)
-if password:
-    password.send_keys(pw.passK)
-    password.submit()   
-
-#pressionando botão Sign in
-time.sleep(2)
-nextButton = localizar_elemento(driver, variables.buttonNext_ID, variables.buttonNext_XPATH)
-if nextButton:
-    nextButton.click()
-time.sleep(5)
-
-#marcar não mostrar novamente e clicar em Yes
-checkboxDontShowAgain = localizar_elemento(driver, variables.checkboxDontShowAgain_ID, variables.checkboxDontShowAgain_XPATH)
-if checkboxDontShowAgain:
-    checkboxDontShowAgain.click()
-    time.sleep(2)
-    nextButton.click()
+    #marcar não mostrar novamente e clicar em Yes
+    checkboxDontShowAgain = localizar_elemento(driver, variables.checkboxDontShowAgain_ID, variables.checkboxDontShowAgain_XPATH)
+    if checkboxDontShowAgain:
+        checkboxDontShowAgain.click()
+        time.sleep(2)
+        nextButton.click()
 
 
 #-------------------------------------- Pós login --------------------------------------

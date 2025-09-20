@@ -80,7 +80,7 @@ def localizarNaTela(*imagens, tentativas_maximas=3, confianca_inicial=0.5):
 
 
 #VARIAVEIS-----------------------------------------------------------
-projeto = 'Gerente de Projeto Linx - Projeto DPaschoal (01-15/09/2025)'
+projeto = 'Gerente de Projeto Linx - Projeto DPaschoal (16-30/09/2025)'
 descr = "elaborar cronograma, daily, status report, comite"
 bt_EnviarCom2Monitores = 'img/bt_EnviarCom2Monitores.png'
 btMozila_salverCom2Monitores = 'img/btMozila_salverCom2Monitores.png'
@@ -91,14 +91,59 @@ btMozila_voltarReservas = 'img/btMozila_voltarReservas.png'
 
 print('Iniciando em 3 seg...')
 sleep(3)
-#Questionamento sobre a tela
+
+#Questionamento sobre nome do projeto
 input(f'Mudou o nome do projeto? ele está como |{projeto}|\n')
+#Questionamento sobre carregamento das telas
 input('Entre nos dialogs para carregar as telas primeiro\nDepois retorne aqui e press enter\n')
+#Questionamento sobre a tela
+tela = input(f'Qual tela está usando? (1 p/ Monitor do notebook e 2 p/ Outros\n')
+match tela:
+    case '1':
+        print('Usando monitor do notebook (com outro monitor conectado)\n')
+        sleep(2)
+        btCriarEntradaX = 1448
+        btCriarEntradaY = 1448
+        btSalvarEnviarX = 311
+        btSalvarEnviarY = 1374
+        btFecharDialogX = x=1705
+        btFecharDialogY = 1322
+        btVoltarX = 224
+        btVoltarY = 1277
+        print()
+    case '2':
+        print('Usando monitor externo')
+    case _:
+        print('Opção inválida, usando monitor externo')
+        tela = '1'
 
-
+#Ir para o navegador
 print('Indo para o navegador...')
 pyautogui.hotkey('alt','tab')
 sleep(1)
+# #Clique duplo no hora
+# pyautogui.doubleClick()
+# sleep(3)
+
+# #Descendo toda a tela
+# print('pressionando ctrl+end 3 vezes\n')
+# pyautogui.keyDown('ctrl')
+# pyautogui.press('end', presses=3)
+# print('aguardando 3 seg\n')
+# sleep(3)
+# pyautogui.press('end', presses=3)
+# pyautogui.keyUp('ctrl')
+# sleep(3)
+# pyautogui.press('end', presses=3)
+# sleep(1)
+
+# #clicar no botão criar entrada de hora
+# print('Clicando no botão criar entrada de hora...')
+# pyautogui.click(btCriarEntradaX, btCriarEntradaY)
+# sleep(4)
+
+#Posicionando mouse sobre a hora inicial(considerando tela do notebook, conectado com outro monitor)
+pyautogui.moveTo(607, 1562)
 
 print('Clicando na hora inicial...')
 #clicar no botão criar entrada de hora
@@ -135,17 +180,25 @@ for i in range(3):
     tabAndWrite(pyperclip.paste(), 1, "NoEnter")
 sleep(2)
 print('Buscando salvar na tela..')
-sleep(2)
-localizarNaTela(btMozila_salverCom2Monitores3,btMozila_salverCom2Monitores, btMozila_salverCom2Monitores2) #Salvar
+# localizarNaTela(btMozila_salverCom2Monitores3,btMozila_salverCom2Monitores, btMozila_salverCom2Monitores2) #Salvar
+pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Salvar
+sleep(1)
+pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Salvar
+sleep(13)
 print('Buscando ENVIAR na tela..')
-sleep(3)
-localizarNaTela(bt_EnviarCom2Monitores, bt_EnviarCom2Monitores)
+# localizarNaTela(bt_EnviarCom2Monitores, bt_EnviarCom2Monitores)
+pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Enviar
+sleep(1)
+pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Enviar
+sleep(13)
 print('Buscando Fechar na tela..')
-sleep(4)
-localizarNaTela(btMozila_fecharDialog,btMozila_fecharDialog)
+# localizarNaTela(btMozila_fecharDialog,btMozila_fecharDialog)
+pyautogui.click(btFecharDialogX, btFecharDialogY) #Fechar dialog
+sleep(6)
 print('Buscando "Voltar" na tela..')
+# localizarNaTela(btMozila_voltarReservas, btMozila_voltarReservas)
+pyautogui.click(btVoltarX, btVoltarY) #Voltar
 sleep(2)
-localizarNaTela(btMozila_voltarReservas, btMozila_voltarReservas)
 
 #salvar
 print('salve')
