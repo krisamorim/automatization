@@ -2,26 +2,17 @@ import pyautogui
 from time import sleep
 import pyperclip
 import sequencialFuncoes as seqFun
-
-#VARIAVEIS-----------------------------------------------------------
-projeto = 'Gerente de Projeto Linx - Projeto DPaschoal (16-30/09/2025)'
-descr = "elaborar cronograma, daily, status report, comite"
-bt_EnviarCom2Monitores = 'img/bt_EnviarCom2Monitores.png'
-btMozila_salverCom2Monitores = 'img/btMozila_salverCom2Monitores.png'
-btMozila_salverCom2Monitores2 = 'img/btMozila_salverCom2Monitores2.png'
-btMozila_salverCom2Monitores3 = 'img/btMozila_salverCom2Monitores3.png'
-btMozila_fecharDialog = 'img/btMozila_fecharDialog.png'
-btMozila_voltarReservas = 'img/btMozila_voltarReservas.png'
+import sequencialVariables as seqVar
 
 print('Iniciando em 3 seg...')
 sleep(3)
 
 #Questionamento sobre nome do projeto
-input(f'Mudou o nome do projeto? ele está como |{projeto}|\n')
+input(f'Mudou o nome do projeto? ele está como |{seqVar.projeto}|\n')
 #Questionamento sobre carregamento das telas
-input('Entre nos dialogs para carregar as telas primeiro\nDepois retorne aqui e press enter\n')
+input('Entre nos dialogs para carregar as telas primeiro. Depois retorne aqui e press enter\n')
 #Questionamento sobre a tela
-tela = input(f'Qual tela está usando? (1 p/ Monitor do notebook com tela externa conectada e 2 tela do notebook SEM tela externa conectada\n')
+tela = input(f'Qual tela está usando?\n(1 p/ Monitor do notebook com tela externa conectada e 2 tela do notebook SEM tela externa conectada\n')
 match tela:
     case '1':
         print('Usando monitor do notebook com outro monitor conectado\n')
@@ -84,7 +75,7 @@ if valorDahora == "12:30":
 
 print('preenchendo o resto..')
 seqFun.tabAndWrite("trab", 2)
-seqFun.tabAndWrite(projeto, 4)
+seqFun.tabAndWrite(seqVar.projeto, 4)
 seqFun.tabAndWrite("100", 2,"NoENter   ")
 seqFun.tabAndWrite("sim", 1)
 seqFun.tabAndWrite("prese", 1)
@@ -93,7 +84,7 @@ sleep(0.7)
 pyautogui.press('tab')
 
 print('colando descrições..')
-pyperclip.copy(descr)
+pyperclip.copy(seqVar.descr)
 sleep(0.7)
 for i in range(3):
     seqFun.tabAndWrite(pyperclip.paste(), 1, "NoEnter")
@@ -110,7 +101,7 @@ sleep(1)
 pyautogui.hotkey('alt','tab') 
 
 print('Buscando ENVIAR na tela..')
-# seqFun.localizarNaTela(bt_EnviarCom2Monitores, bt_EnviarCom2Monitores)
+# seqFun.localizarNaTela(seqVar.bt_EnviarCom2Monitores, seqVar.bt_EnviarCom2Monitores)
 pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Enviar
 sleep(2)
 pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Enviar
