@@ -6,7 +6,6 @@ import sequencialVariables as seqVar
 
 print('Iniciando em 3 seg...')
 sleep(3)
-
 #Questionamento sobre nome do projeto
 input(f'Mudou o nome do projeto? ele está como |{seqVar.projeto}|\n')
 #Questionamento sobre carregamento das telas
@@ -42,85 +41,94 @@ match tela:
         hrInicialX = 607
         hrInicialY = 1562
 
-print('Indo para o navegador...')
-sleep(3)
-pyautogui.hotkey('alt','tab')
-sleep(1)
+while True:
+    print('Indo para o navegador...')
+    sleep(3)
+    pyautogui.hotkey('alt','tab')
+    sleep(1)
 
-#entrando no dia
-seqFun.clickDataAddEntrada()
+    #entrando no dia
+    seqFun.clickDataAddEntrada()
 
-print('Clicando no botão criar entrada de hora...')
-pyautogui.click(btCriarEntradaX, btCriarEntradaY)
-sleep(4)
+    print('Clicando no botão criar entrada de hora...')
+    pyautogui.click(btCriarEntradaX, btCriarEntradaY)
+    sleep(4)
 
-print('Clicando na hora inicial...')
-pyautogui.moveTo(hrInicialX, hrInicialY)
+    print('Clicando na hora inicial...')
+    pyautogui.moveTo(hrInicialX, hrInicialY)
 
-#clicar no campo da hora inicial
-pyautogui.click()
-sleep(1)
-pyautogui.press('tab')
-sleep(1)
-pyautogui.press('tab')
-sleep(1)
+    #clicar no campo da hora inicial
+    pyautogui.click()
+    sleep(1)
+    pyautogui.press('tab')
+    sleep(1)
+    pyautogui.press('tab')
+    sleep(1)
 
-print('Verificando hora final...')
-pyautogui.hotkey('ctrl','c') #copindo valor do campo
-sleep(1)
-#verificar valor da hora
-valorDahora = pyperclip.paste()
-if valorDahora == "12:30":
-    pyautogui.write("12:00")
+    print('Verificando hora final...')
+    pyautogui.hotkey('ctrl','c') #copindo valor do campo
+    sleep(1)
+    #verificar valor da hora
+    valorDahora = pyperclip.paste()
+    if valorDahora == "12:30":
+        pyautogui.write("12:00")
 
-print('preenchendo o resto..')
-seqFun.tabAndWrite("trab", 2)
-seqFun.tabAndWrite(seqVar.projeto, 4)
-seqFun.tabAndWrite("100", 2,"NoENter   ")
-seqFun.tabAndWrite("sim", 1)
-seqFun.tabAndWrite("prese", 1)
-pyautogui.press('tab')
-sleep(0.7)
-pyautogui.press('tab')
+    print('preenchendo o resto..')
+    seqFun.tabAndWrite("trab", 2)
+    seqFun.tabAndWrite(seqVar.projeto, 4)
+    seqFun.tabAndWrite("100", 2,"NoENter   ")
+    seqFun.tabAndWrite("sim", 1)
+    seqFun.tabAndWrite("prese", 1)
+    pyautogui.press('tab')
+    sleep(0.7)
+    pyautogui.press('tab')
 
-print('colando descrições..')
-pyperclip.copy(seqVar.descr)
-sleep(0.7)
-for i in range(3):
-    seqFun.tabAndWrite(pyperclip.paste(), 1, "NoEnter")
-sleep(2)
+    print('colando descrições..')
+    pyperclip.copy(seqVar.descr)
+    sleep(0.7)
+    for i in range(3):
+        seqFun.tabAndWrite(pyperclip.paste(), 1, "NoEnter")
+    sleep(2)
 
-print('Buscando salvar na tela..')
-# seqFun.localizarNaTela(btMozila_salverCom2Monitores3,btMozila_salverCom2Monitores, btMozila_salverCom2Monitores2) #Salvar
-pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Salvar
-sleep(2)
-pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Salvar
-pyautogui.hotkey('alt','tab') 
-input('Verifique se salvou corretamente e depois pressione enter para continuar\n')
-sleep(1)
-pyautogui.hotkey('alt','tab') 
+    print('Buscando salvar na tela..')
+    # seqFun.localizarNaTela(btMozila_salverCom2Monitores3,btMozila_salverCom2Monitores, btMozila_salverCom2Monitores2) #Salvar
+    pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Salvar
+    sleep(2)
+    pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Salvar
+    pyautogui.hotkey('alt','tab') 
+    input('Verifique se salvou corretamente e depois pressione enter para continuar\n')
+    sleep(1)
+    pyautogui.hotkey('alt','tab') 
 
-print('Buscando ENVIAR na tela..')
-# seqFun.localizarNaTela(seqVar.bt_EnviarCom2Monitores, seqVar.bt_EnviarCom2Monitores)
-pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Enviar
-sleep(2)
-pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Enviar
-pyautogui.hotkey('alt','tab') 
-input('Verifique se enviou corretamente e depois pressione enter para continuar\n')
-pyautogui.hotkey('alt','tab') 
-sleep(1)
+    print('Buscando ENVIAR na tela..')
+    # seqFun.localizarNaTela(seqVar.bt_EnviarCom2Monitores, seqVar.bt_EnviarCom2Monitores)
+    pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Enviar
+    sleep(2)
+    pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Enviar
+    pyautogui.hotkey('alt','tab') 
+    input('Verifique se enviou corretamente e depois pressione enter para continuar\n')
+    pyautogui.hotkey('alt','tab') 
+    sleep(1)
 
-print('Buscando Fechar na tela..')
-# seqFun.localizarNaTela(btMozila_fecharDialog,btMozila_fecharDialog)
-pyautogui.click(btFecharDialogX, btFecharDialogY) #Fechar dialog
-sleep(4)
+    print('Buscando Fechar na tela..')
+    # seqFun.localizarNaTela(btMozila_fecharDialog,btMozila_fecharDialog)
+    pyautogui.click(btFecharDialogX, btFecharDialogY) #Fechar dialog
+    sleep(4)
 
-print('Buscando "Voltar" na tela..')
-# seqFun.localizarNaTela(btMozila_voltarReservas, btMozila_voltarReservas)
-pyautogui.click(btVoltarX, btVoltarY) #Voltar
-sleep(2)
+    print('Buscando "Voltar" na tela..')
+    # seqFun.localizarNaTela(btMozila_voltarReservas, btMozila_voltarReservas)
+    pyautogui.click(btVoltarX, btVoltarY) #Voltar
+    sleep(2)
+    #voltando para o terminal
+    pyautogui.hotkey('alt','tab')
 
-pyautogui.hotkey('alt','tab')
-
-
+    try:
+        escolha = int(input("Deseja repetir o processo? (1 para sim, 2 para não): "))
+        if escolha == 2:
+            print("Finalizando o programa.")
+            break
+        elif escolha != 1:
+            print("Opção inválida. Digite 1 para repetir ou 2 para finalizar.")
+    except ValueError:
+        print("Entrada inválida. Por favor, digite um número (1 ou 2).")
     
