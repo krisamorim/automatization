@@ -40,7 +40,16 @@ match tela:
         print('Usando monitor do notebook SEM outro monitor conectado\n')
     case _:
         print('Opção inválida, considerando monitor do notebook com outro monitor conectado)\n')
-        tela = '1'
+        btCriarEntradaX = 1448
+        btCriarEntradaY = 1448
+        btSalvarEnviarX = 311
+        btSalvarEnviarY = 1374
+        btFecharDialogX = 1705
+        btFecharDialogY = 1322
+        btVoltarX = 224
+        btVoltarY = 1277
+        hrInicialX = 607
+        hrInicialY = 1562
 
 print('Indo para o navegador...')
 sleep(3)
@@ -93,21 +102,27 @@ sleep(2)
 print('Buscando salvar na tela..')
 # seqFun.localizarNaTela(btMozila_salverCom2Monitores3,btMozila_salverCom2Monitores, btMozila_salverCom2Monitores2) #Salvar
 pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Salvar
-sleep(1)
+sleep(2)
 pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Salvar
-sleep(13)
+pyautogui.hotkey('alt','tab') 
+input('Verifique se salvou corretamente e depois pressione enter para continuar\n')
+sleep(1)
+pyautogui.hotkey('alt','tab') 
 
 print('Buscando ENVIAR na tela..')
 # seqFun.localizarNaTela(bt_EnviarCom2Monitores, bt_EnviarCom2Monitores)
 pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Enviar
-sleep(1)
+sleep(2)
 pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Enviar
-sleep(13)
+pyautogui.hotkey('alt','tab') 
+input('Verifique se enviou corretamente e depois pressione enter para continuar\n')
+pyautogui.hotkey('alt','tab') 
+sleep(1)
 
 print('Buscando Fechar na tela..')
 # seqFun.localizarNaTela(btMozila_fecharDialog,btMozila_fecharDialog)
 pyautogui.click(btFecharDialogX, btFecharDialogY) #Fechar dialog
-sleep(6)
+sleep(4)
 
 print('Buscando "Voltar" na tela..')
 # seqFun.localizarNaTela(btMozila_voltarReservas, btMozila_voltarReservas)
