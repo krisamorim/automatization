@@ -75,7 +75,6 @@ def localizarNaTela(*imagens):
     print("Nenhuma das imagens foi encontrada.")
     return None  # Retorna None se nenhuma imagem for localizada
 
-
 print(data_atual_formatada())
 sleep(90)
 

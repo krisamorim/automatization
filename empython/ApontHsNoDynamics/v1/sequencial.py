@@ -12,6 +12,9 @@ input(f'Mudou o nome do projeto? ele está como |{seqVar.projeto}|\n')
 input('Entre nos dialogs para carregar as telas primeiro. Depois retorne aqui e press enter\n')
 #Questionamento sobre a tela
 tela = input(f'Qual tela está usando?\n(1 p/ Monitor do notebook com tela externa conectada e 2 tela do notebook SEM tela externa conectada\n')
+#Verificando quantas vezes deseja repetir o código
+repeticaoVezes = input("Quantas vezes deseja repetir o processo? (Digite um número): \n")
+
 match tela:
     case '1':
         print('Usando monitor do notebook com outro monitor conectado\n')

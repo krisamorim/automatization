@@ -2,7 +2,7 @@
 # driver = webdriver.Firefox(executable_path='C:\Program Files\SeleniumMozila\geckodriver.exe')
 # driver.get("http://www.python.org")
 import password as pw
-import variables
+import variables as variables
 import time
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
