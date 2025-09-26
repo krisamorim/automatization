@@ -14,6 +14,9 @@ input('Entre nos dialogs para carregar as telas primeiro. Depois retorne aqui e 
 tela = input(f'Qual tela está usando?\n(1 p/ Monitor do notebook com tela externa conectada e 2 tela do notebook SEM tela externa conectada\n')
 #Verificando quantas vezes deseja repetir o código
 repeticaoVezes = input("Quantas vezes deseja repetir o processo? (Digite um número): \n")
+if not repeticaoVezes.isdigit() or int(repeticaoVezes) <= 0:
+    repeticaoVezes = 1
+    print("Entrada inválida. O processo será repetido 1 vez.\n")
 
 match tela:
     case '1':
@@ -44,16 +47,25 @@ match tela:
         hrInicialX = 607
         hrInicialY = 1562
 
-while True:
-    print('Indo para o navegador...')
-    sleep(3)
+#obtendo posição do mouse
+xx,yy = pyautogui.position()
+print(f'Posição do mouse: x={xx}, y={yy}\n')
+
+for i in range(int(repeticaoVezes)):
+    print('Indo para o navegador...\n')
+    sleep(2)
     pyautogui.hotkey('alt','tab')
     sleep(1)
+
+    #mover mouse para posição do botão de adicionar entrada
+    print('Movendo para o botão de adicionar entrada...\n')
+    pyautogui.moveTo(xx,yy)
+    sleep(2)
 
     #entrando no dia
     seqFun.clickDataAddEntrada()
 
-    print('Clicando no botão criar entrada de hora...')
+    print('Clicando no botão criar entrada de hora...\n')
     pyautogui.click(btCriarEntradaX, btCriarEntradaY)
     sleep(4)
 
@@ -125,13 +137,8 @@ while True:
     #voltando para o terminal
     pyautogui.hotkey('alt','tab')
 
-    try:
-        escolha = int(input("Deseja repetir o processo? (1 para sim, 2 para não): "))
-        if escolha == 2:
-            print("Finalizando o programa.")
-            break
-        elif escolha != 1:
-            print("Opção inválida. Digite 1 para repetir ou 2 para finalizar.")
-    except ValueError:
-        print("Entrada inválida. Por favor, digite um número (1 ou 2).")
-    
+    #subindo o ponteiro do mouse
+    yy -= 39
+
+
+print('Processo finalizado!\n')
