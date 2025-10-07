@@ -46,6 +46,8 @@ match tela:
         btVoltarY = 1277
         hrInicialX = 607
         hrInicialY = 1562
+#verificando se o moue está na posição correta
+input('Coloque o mouse sobre o botão de adicionar entrada e pressione enter\n')
 
 #obtendo posição do mouse
 xx,yy = pyautogui.position()
