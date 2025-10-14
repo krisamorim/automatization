@@ -1,17 +1,8 @@
-def somaDokris(x, y):
-    resultado = x + y
-    return resultado
+import pyautogui
+from time import sleep
+import pyperclip
 
+texto = "Teste de automação de NF-e"
 
-def textoDokris(textoDeEntrada):
-    textoFinal = "O resultado final " + textoDeEntrada
-    return textoFinal
-
-
-def juntar():
-    soma = 40
-    texto = textoDokris('é')
-    return texto + soma
-
-
-print(juntar)
+pyperclip.copy(texto)
+print(pyperclip.paste())

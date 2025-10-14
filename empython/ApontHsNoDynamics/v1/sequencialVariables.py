@@ -1,5 +1,5 @@
-projeto = 'Gerente de Projeto Linx - Projeto DPaschoal (16-30/09/2025)'
-descr = "elaborar cronograma, daily, status report, comite"
+projeto = 'Gerente de Projeto Linx - Projeto DPaschoal (01-15/10/2025)'
+descr = "elaborar cronograma, conduzir daily,elaborar  status report, elaborar comitê, facilitar reuniões, acompanhar riscos, acompanhar issues, acompanhar ações, acompanhar entregas, acompanhar qualidade, acompanhar escopo, acompanhar prazo, acompanhar custos, gerenciar equipe, gerenciar partes interessadas, gerenciar comunicação, gerenciar aquisições, gerenciar mudanças, gerenciar recursos"
 bt_EnviarCom2Monitores = 'img/bt_EnviarCom2Monitores.png'
 btMozila_salverCom2Monitores = 'img/btMozila_salverCom2Monitores.png'
 btMozila_salverCom2Monitores2 = 'img/btMozila_salverCom2Monitores2.png'

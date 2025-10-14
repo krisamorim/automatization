@@ -76,7 +76,7 @@ for i in range(int(repeticaoVezes)):
 
     #clicar no campo da hora inicial
     pyautogui.click()
-    sleep(1)
+    sleep(.7)
     pyautogui.press('tab')
     sleep(1)
     pyautogui.press('tab')
@@ -84,13 +84,15 @@ for i in range(int(repeticaoVezes)):
 
     print('Verificando hora final...')
     pyautogui.hotkey('ctrl','c') #copindo valor do campo
-    sleep(1)
+    sleep(.7)
     #verificar valor da hora
     valorDahora = pyperclip.paste()
-    if valorDahora == "12:30":
+    if valorDahora[:2] == "12":
         pyautogui.write("12:00")
+    else:
+        pyautogui.write("17:00")
 
-    print('preenchendo o resto..')
+    print('Preenchendo o resto..')
     seqFun.tabAndWrite("trab", 2)
     seqFun.tabAndWrite(seqVar.projeto, 4)
     seqFun.tabAndWrite("100", 2,"NoENter   ")
@@ -101,10 +103,15 @@ for i in range(int(repeticaoVezes)):
     pyautogui.press('tab')
 
     print('colando descrições..')
-    pyperclip.copy(seqVar.descr)
+    pyperclip.copy(seqVar.descr.encode('utf-8').decode('utf-8'))
     sleep(0.7)
     for i in range(3):
-        seqFun.tabAndWrite(pyperclip.paste(), 1, "NoEnter")
+        sleep(0.7)
+        pyautogui.press('tab')
+        sleep(0.7)
+        pyautogui.hotkey('ctrl','v')
+        sleep(0.7)
+        # seqFun.tabAndWrite(pyperclip.paste(), 1, "NoEnter")
     sleep(2)
 
     print('Buscando salvar na tela..')
