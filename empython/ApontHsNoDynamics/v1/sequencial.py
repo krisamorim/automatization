@@ -92,9 +92,27 @@ for i in range(int(repeticaoVezes)):
     else:
         pyautogui.write("17:00")
 
-    print('Preenchendo o resto..')
+    print('Preenchendo o trabalho..')
     seqFun.tabAndWrite("trab", 2)
-    seqFun.tabAndWrite(seqVar.projeto, 4)
+
+    print('Preenchendo o projeto..')
+    pyautogui.press('tab') #se remover o tab debaixo, remova essa linha
+    sleep(0.5)
+    pyautogui.press('tab') #se remover o tab debaixo, remova essa linha
+    sleep(0.5)
+    pyautogui.press('tab') #se remover o tab debaixo, remova essa linha
+    sleep(0.5)
+    pyautogui.press('tab') #se remover o comentario da linha de baixo, remova essa linha
+    sleep(0.5)
+    # seqFun.tabAndWrite(seqVar.projeto, 4)
+    pyperclip.copy(seqVar.projeto.encode('utf-8').decode('utf-8')) #copiando o nome do projeto
+    sleep(0.5)
+    pyautogui.hotkey('ctrl','v')
+    sleep(2.5)
+    pyautogui.press('enter')
+    sleep(1)
+
+    print('Preenchendo o resto..')
     seqFun.tabAndWrite("100", 2,"NoENter   ")
     seqFun.tabAndWrite("sim", 1)
     seqFun.tabAndWrite("prese", 1)
@@ -103,16 +121,26 @@ for i in range(int(repeticaoVezes)):
     pyautogui.press('tab')
 
     print('colando descrições..')
-    pyperclip.copy(seqVar.descr.encode('utf-8').decode('utf-8'))
+    pyperclip.copy(seqVar.descr.encode('utf-8').decode('utf-8')[:195]) #copiando até qualidade
     sleep(0.7)
-    for i in range(3):
-        sleep(0.7)
-        pyautogui.press('tab')
-        sleep(0.7)
-        pyautogui.hotkey('ctrl','v')
-        sleep(0.7)
-        # seqFun.tabAndWrite(pyperclip.paste(), 1, "NoEnter")
-    sleep(2)
+    pyautogui.press('tab')
+    sleep(0.4)
+    pyautogui.hotkey('ctrl','v')
+
+
+    pyperclip.copy(seqVar.descr.encode('utf-8').decode('utf-8')) #copiando tudo
+    sleep(0.7)
+    pyautogui.press('tab')
+    sleep(0.4)
+    pyautogui.hotkey('ctrl','v')
+    sleep(0.7)
+
+    pyperclip.copy(seqVar.descr.encode('utf-8').decode('utf-8')[:96]) #copiando até a palavra reunião
+    sleep(0.7)
+    pyautogui.press('tab')
+    sleep(0.4)
+    pyautogui.hotkey('ctrl','v')
+    sleep(0.7)
 
     print('Buscando salvar na tela..')
     # seqFun.localizarNaTela(btMozila_salverCom2Monitores3,btMozila_salverCom2Monitores, btMozila_salverCom2Monitores2) #Salvar
