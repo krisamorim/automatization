@@ -53,12 +53,22 @@ input('Coloque o mouse sobre o botão de adicionar entrada e pressione enter\n')
 xx,yy = pyautogui.position()
 print(f'Posição do mouse: x={xx}, y={yy}\n')
 
-for i in range(int(repeticaoVezes)):
-    print('Indo para o navegador...\n')
-    sleep(2)
-    pyautogui.hotkey('alt','tab')
-    sleep(1)
 
+print('Indo para o navegador...\n')
+pyautogui.hotkey('alt','tab')
+sleep(1)
+
+# configurando zoom da pagina para 90%
+pyautogui.click(xx,yy) #clicando para garantir que a janela está ativa
+sleep(1)
+print('Configurando zoom da página para 90%...\n')
+pyautogui.hotkey('ctrl','0')
+sleep(1)
+pyautogui.hotkey('ctrl','-')
+sleep(1)
+
+
+for i in range(int(repeticaoVezes)):
     #mover mouse para posição do botão de adicionar entrada
     print('Movendo para o botão de adicionar entrada...\n')
     pyautogui.moveTo(xx,yy)
@@ -66,13 +76,6 @@ for i in range(int(repeticaoVezes)):
 
     #entrando no dia
     seqFun.clickDataAddEntrada()
-
-    # configurando zoom da pagina para 90%
-    print('Configurando zoom da página para 90%...\n')
-    pyautogui.hotkey('ctrl','0')
-    sleep(1)
-    pyautogui.hotkey('ctrl','-')
-    sleep(1)
 
     print('Clicando no botão criar entrada de hora...\n')
     pyautogui.click(btCriarEntradaX, btCriarEntradaY)
