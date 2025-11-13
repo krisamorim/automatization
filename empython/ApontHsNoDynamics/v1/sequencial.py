@@ -23,29 +23,29 @@ match tela:
         print('Usando monitor do notebook com outro monitor conectado\n')
         sleep(2)
         btCriarEntradaX = 1448
-        btCriarEntradaY = 1448
-        btSalvarEnviarX = 311
-        btSalvarEnviarY = 1374
+        btCriarEntradaY = 476
+        btSalvarEnviarX = 287
+        btSalvarEnviarY = 289
         btFecharDialogX = 1705
-        btFecharDialogY = 1322
-        btVoltarX = 224
-        btVoltarY = 1277
+        btFecharDialogY = 247
+        btVoltarX = 222
+        btVoltarY = 188
         hrInicialX = 607
-        hrInicialY = 1562
+        hrInicialY = 494
     case '2':
         print('Usando monitor do notebook SEM outro monitor conectado\n')
     case _:
         print('Opção inválida, considerando monitor do notebook com outro monitor conectado)\n')
         btCriarEntradaX = 1448
-        btCriarEntradaY = 1448
-        btSalvarEnviarX = 311
-        btSalvarEnviarY = 1374
+        btCriarEntradaY = 476
+        btSalvarEnviarX = 287
+        btSalvarEnviarY = 289
         btFecharDialogX = 1705
-        btFecharDialogY = 1322
-        btVoltarX = 224
-        btVoltarY = 1277
-        hrInicialX = 607
-        hrInicialY = 1562
+        btFecharDialogY = 247
+        btVoltarX = 222
+        btVoltarY = 188
+        hrInicialX = 600
+        hrInicialY = 494
 #verificando se o moue está na posição correta
 input('Coloque o mouse sobre o botão de adicionar entrada e pressione enter\n')
 
@@ -67,9 +67,16 @@ for i in range(int(repeticaoVezes)):
     #entrando no dia
     seqFun.clickDataAddEntrada()
 
+    # configurando zoom da pagina para 90%
+    print('Configurando zoom da página para 90%...\n')
+    pyautogui.hotkey('ctrl','0')
+    sleep(1)
+    pyautogui.hotkey('ctrl','-')
+    sleep(1)
+
     print('Clicando no botão criar entrada de hora...\n')
     pyautogui.click(btCriarEntradaX, btCriarEntradaY)
-    sleep(4)
+    sleep(5)
 
     print('Clicando na hora inicial...')
     pyautogui.moveTo(hrInicialX, hrInicialY)
@@ -77,9 +84,7 @@ for i in range(int(repeticaoVezes)):
     #clicar no campo da hora inicial
     pyautogui.click()
     sleep(.7)
-    pyautogui.press('tab')
-    sleep(1)
-    pyautogui.press('tab')
+    pyautogui.press('tab', presses=2, interval=0.5)
     sleep(1)
 
     print('Verificando hora final...')

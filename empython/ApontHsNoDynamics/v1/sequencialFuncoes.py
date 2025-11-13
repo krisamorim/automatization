@@ -6,11 +6,11 @@ import sys
 def clickDataAddEntrada():
     #Clique duplo no hora
     pyautogui.doubleClick()
-    sleep(3)
+    sleep(4)
 
     #Descendo toda a tela
     print('pressionando ctrl+end 3 vezes\n')
-    sleep(2)
+    sleep(3)
     pyautogui.keyDown('ctrl')
     pyautogui.press('end', presses=3)
     print('aguardando 3 seg\n')
@@ -46,7 +46,7 @@ def mudarDir():
     print(f"\nDiretório alterado para: {pasta_atual}")
     return pasta_atual
     
-    # Localiza a imagem na tela
+# Localiza a imagem na tela
 def localizarNaTela(*imagens, tentativas_maximas=3, confianca_inicial=0.5):
     mudarDir()
     sleep(1)
