@@ -4,6 +4,8 @@ import pyperclip
 import sequencialFuncoes as seqFun
 import sequencialVariables as seqVar
 
+
+
 print('Iniciando em 3 seg...')
 sleep(3)
 #Questionamento sobre nome do projeto
@@ -22,30 +24,30 @@ match tela:
     case '1':
         print('Usando monitor do notebook com outro monitor conectado\n')
         sleep(2)
-        btCriarEntradaX = 1448
-        btCriarEntradaY = 476
-        btSalvarEnviarX = 287
-        btSalvarEnviarY = 289
+        btCriarEntradaX = 1064
+        btCriarEntradaY = 1554
+        btSalvarEnviarX = 290
+        btSalvarEnviarY = 1378
         btFecharDialogX = 1705
-        btFecharDialogY = 247
-        btVoltarX = 222
-        btVoltarY = 188
-        hrInicialX = 607
-        hrInicialY = 494
+        btFecharDialogY = 1325
+        btVoltarX = 75
+        btVoltarY = 1267
+        hrInicialX = 591
+        hrInicialY = 1572
     case '2':
         print('Usando monitor do notebook SEM outro monitor conectado\n')
     case _:
         print('Opção inválida, considerando monitor do notebook com outro monitor conectado)\n')
-        btCriarEntradaX = 1448
-        btCriarEntradaY = 476
-        btSalvarEnviarX = 287
-        btSalvarEnviarY = 289
+        btCriarEntradaX = 1064
+        btCriarEntradaY = 1554
+        btSalvarEnviarX = 290
+        btSalvarEnviarY = 1378
         btFecharDialogX = 1705
-        btFecharDialogY = 247
-        btVoltarX = 222
-        btVoltarY = 188
-        hrInicialX = 600
-        hrInicialY = 494
+        btFecharDialogY = 1325
+        btVoltarX = 75
+        btVoltarY = 1267
+        hrInicialX = 591
+        hrInicialY = 1572
 #verificando se o moue está na posição correta
 input('Coloque o mouse sobre o botão de adicionar entrada e pressione enter\n')
 
