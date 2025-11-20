@@ -4,8 +4,6 @@ import pyperclip
 import sequencialFuncoes as seqFun
 import sequencialVariables as seqVar
 
-
-
 print('Iniciando em 3 seg...')
 sleep(3)
 #Questionamento sobre nome do projeto
@@ -55,7 +53,6 @@ input('Coloque o mouse sobre o botão de adicionar entrada e pressione enter\n')
 xx,yy = pyautogui.position()
 print(f'Posição do mouse: x={xx}, y={yy}\n')
 
-
 print('Indo para o navegador...\n')
 pyautogui.hotkey('alt','tab')
 sleep(1)
@@ -68,7 +65,6 @@ pyautogui.hotkey('ctrl','0')
 sleep(1)
 pyautogui.hotkey('ctrl','-')
 sleep(1)
-
 
 for i in range(int(repeticaoVezes)):
     #mover mouse para posição do botão de adicionar entrada
