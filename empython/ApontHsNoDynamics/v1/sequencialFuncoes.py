@@ -2,6 +2,7 @@ import pyautogui
 from time import sleep
 import os
 import sys
+import pyperclip
 
 def clickDataAddEntrada():
     #Clique duplo no hora
@@ -18,8 +19,9 @@ def clickDataAddEntrada():
     pyautogui.press('end', presses=3)
     pyautogui.keyUp('ctrl')
     sleep(3)
-    pyautogui.press('end', presses=3)
-    sleep(1)
+    pyautogui.press('end', presses=33)
+    sleep(2)
+    pyautogui.press('end', presses=13)
 
 def tabAndWrite(txt, tabs, NoEnter=""):
     sleep(0.7)
@@ -45,7 +47,17 @@ def mudarDir():
     os.chdir(pasta_atual)
     print(f"\nDiretório alterado para: {pasta_atual}")
     return pasta_atual
-    
+
+def verificarTelaLiberada(palavra, x, y):
+    pyperclip.copy('vazio')
+    print(f'valor co clipboard é {pyperclip.paste()}')
+    while pyperclip.paste() != palavra:
+        print('Tela não liberada, aguardando 3 segundos...')
+        sleep(3)
+        pyautogui.doubleClick(x,y)
+        sleep(1)
+        pyautogui.hotkey('ctrl','c')
+
 # Localiza a imagem na tela
 def localizarNaTela(*imagens, tentativas_maximas=3, confianca_inicial=0.5):
     mudarDir()

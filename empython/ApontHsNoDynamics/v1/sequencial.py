@@ -6,6 +6,8 @@ import sequencialVariables as seqVar
 
 print('Iniciando em 3 seg...')
 sleep(3)
+# print(pyautogui.position())
+# sleep(2000)
 #Questionamento sobre nome do projeto
 input(f'Mudou o nome do projeto? ele está como |{seqVar.projeto}|\n')
 #Questionamento sobre carregamento das telas
@@ -22,28 +24,28 @@ match tela:
     case '1':
         print('Usando monitor do notebook com outro monitor conectado\n')
         sleep(2)
-        btCriarEntradaX = 1064
-        btCriarEntradaY = 1554
+        btCriarEntradaX = 1430
+        btCriarEntradaY = 1557
         btSalvarEnviarX = 290
         btSalvarEnviarY = 1378
         btFecharDialogX = 1705
         btFecharDialogY = 1325
-        btVoltarX = 75
-        btVoltarY = 1267
+        btVoltarX = 218
+        btVoltarY = 1274
         hrInicialX = 591
         hrInicialY = 1572
     case '2':
         print('Usando monitor do notebook SEM outro monitor conectado\n')
     case _:
         print('Opção inválida, considerando monitor do notebook com outro monitor conectado)\n')
-        btCriarEntradaX = 1064
-        btCriarEntradaY = 1554
+        btCriarEntradaX = 1430
+        btCriarEntradaY = 1557
         btSalvarEnviarX = 290
         btSalvarEnviarY = 1378
         btFecharDialogX = 1705
         btFecharDialogY = 1325
-        btVoltarX = 75
-        btVoltarY = 1267
+        btVoltarX = 218
+        btVoltarY = 1274
         hrInicialX = 591
         hrInicialY = 1572
 #verificando se o moue está na posição correta
@@ -64,7 +66,7 @@ print('Configurando zoom da página para 90%...\n')
 pyautogui.hotkey('ctrl','0')
 sleep(1)
 pyautogui.hotkey('ctrl','-')
-sleep(1)
+sleep(2)
 
 for i in range(int(repeticaoVezes)):
     #mover mouse para posição do botão de adicionar entrada
@@ -74,10 +76,12 @@ for i in range(int(repeticaoVezes)):
 
     #entrando no dia
     seqFun.clickDataAddEntrada()
+    pyautogui.move(btCriarEntradaX, btCriarEntradaY)
+    sleep(2)
 
     print('Clicando no botão criar entrada de hora...\n')
     pyautogui.click(btCriarEntradaX, btCriarEntradaY)
-    sleep(5)
+    sleep(6)
 
     print('Clicando na hora inicial...')
     pyautogui.moveTo(hrInicialX, hrInicialY)
@@ -153,19 +157,15 @@ for i in range(int(repeticaoVezes)):
     pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Salvar
     sleep(2)
     pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Salvar
-    pyautogui.hotkey('alt','tab') 
-    input('Verifique se salvou corretamente e depois pressione enter para continuar\n')
-    sleep(1)
-    pyautogui.hotkey('alt','tab') 
+    seqFun.verificarTelaLiberada('qualidade', 1462,1328) #verifica se a tela está liberada para clicar em enviar
 
     print('Buscando ENVIAR na tela..')
     # seqFun.localizarNaTela(seqVar.bt_EnviarCom2Monitores, seqVar.bt_EnviarCom2Monitores)
     pyautogui.moveTo(btSalvarEnviarX, btSalvarEnviarY) #Enviar
     sleep(2)
     pyautogui.click(btSalvarEnviarX, btSalvarEnviarY) #Enviar
-    pyautogui.hotkey('alt','tab') 
-    input('Verifique se enviou corretamente e depois pressione enter para continuar\n')
-    pyautogui.hotkey('alt','tab') 
+    sleep(3)
+    seqFun.verificarTelaLiberada('qualidade', 1462,1328) #verifica se a tela está liberada para poder fecha-la
     sleep(1)
 
     print('Buscando Fechar na tela..')
@@ -182,6 +182,5 @@ for i in range(int(repeticaoVezes)):
 
     #subindo o ponteiro do mouse
     yy -= 39
-
 
 print('Processo finalizado!\n')
