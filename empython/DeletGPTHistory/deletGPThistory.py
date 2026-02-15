@@ -4,14 +4,14 @@ from time import sleep
 
 pyautogui.hotkey('alt','tab')
 
-for i in range(3):
-    pyautogui.moveTo(219,457)
-    sleep(.5)
-    pyautogui.click(220,457) #3 pontos
-    sleep(.7)
-    pyautogui.click(242,614) #delet
-    sleep(.7)
-    pyautogui.click(1133,652) #yes
+for i in range(12):
+    pyautogui.moveTo(240,457)
+    sleep(.6)
+    pyautogui.click(240,457) #3 pontos
+    sleep(.6)
+    pyautogui.click(242,694) #delet
+    sleep(.6)
+    pyautogui.click(1133,602) #yes
     print(i)
     sleep(2)
 
