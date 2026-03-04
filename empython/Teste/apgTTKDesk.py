@@ -3,19 +3,29 @@ from time import sleep
 
 print("Iniciando programa em 2 seg...")
 sleep(2)
+contador = 0
 
 while True:
-    # clicando em 3 pontinhos (X: 1316 Y: 1221)
-    pyautogui.moveTo(1316, 1221, duration=0.5)
+    # clicando em 3 pontinhos 
+    pyautogui.moveTo(354, 1307, duration=0.5)
     pyautogui.click()
-    sleep(.8)
+    sleep(.2)
 
-    #clicando em excluir (X: 1249 Y: 1467)
-    pyautogui.moveTo(1249, 1467, duration=0.5)
+    #clicando em excluir 
+    pyautogui.moveTo(269, 1527, duration=0.5)
     pyautogui.click()
 
-    print("Aguardando 2 segundos para finalizar...")
-    sleep(2)
+    print("Aguardando 0.2 segundos para finalizar...")
+    
+    contador += 1
+
+    #Quantidade de vezes realizadas
+    print(f"Quantidade de vezes realizadas: {contador}")
+
+    #se contador igual a multiplo de 10 agaurdar 3 segundos
+    if contador % 10 == 0:
+        print("Aguardando 3 segundos para continuar...")
+        sleep(3)
 
 # pyautogui.FAILSAFE = True
 # print("Mostrando posição do mouse. Pressione Ctrl-C para parar.")
