@@ -93,7 +93,7 @@ for i in range(int(repeticaoVezes)):
     sleep(1)
 
     print('Verificando hora final...')
-    pyautogui.hotkey('ctrl','c') #copindo valor do campo
+    pyautogui.hotkey('ctrl','c') #copiando valor do campo
     sleep(.7)
     #verificar valor da hora
     valorDahora = pyperclip.paste()

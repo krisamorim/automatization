@@ -24,6 +24,7 @@ while True:
 
     #se contador igual a multiplo de 10 agaurdar 3 segundos
     if contador % 10 == 0:
+        pyautogui.hotkey('alt', 'tab')
         print("Aguardando 3 segundos para continuar...")
         sleep(3)
 

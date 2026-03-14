@@ -7,21 +7,23 @@ import pyperclip
 def clickDataAddEntrada():
     #Clique duplo no hora
     pyautogui.doubleClick()
-    sleep(4)
-
-    #Descendo toda a tela
-    print('pressionando ctrl+end 3 vezes\n')
-    sleep(3)
-    pyautogui.keyDown('ctrl')
-    pyautogui.press('end', presses=3)
-    print('aguardando 3 seg\n')
-    sleep(3)
-    pyautogui.press('end', presses=3)
-    pyautogui.keyUp('ctrl')
-    sleep(3)
-    pyautogui.press('end', presses=33)
     sleep(2)
-    pyautogui.press('end', presses=13)
+
+    clipbCtrlV = pyperclip.paste()
+
+    while clipbCtrlV != "Status ":
+        print('pressionando ctrl+end 3 vezes\n')
+        sleep(1)
+        pyautogui.keyDown('ctrl')
+        pyautogui.press('end', presses=4)       
+        pyautogui.keyUp('ctrl')
+        pyautogui.doubleClick(224,1512)
+        sleep(.6)
+        pyautogui.hotkey('ctrl','c')
+        sleep(.6)
+        clipbCtrlV = pyperclip.paste()
+        if clipbCtrlV == "Status ":
+            print(f'Valor do clipboard: {clipbCtrlV}')
 
 def tabAndWrite(txt, tabs, NoEnter=""):
     sleep(0.7)
