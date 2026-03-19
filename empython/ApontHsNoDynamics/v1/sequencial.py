@@ -85,7 +85,7 @@ for i in range(int(repeticaoVezes)):
     sleep(.6)
     print('Clicando no botão criar entrada de hora...\n')
     pyautogui.click(btCriarEntradaX, btCriarEntradaY)
-    sleep(6)
+    sleep(5)
 
     print('Clicando na hora inicial...')
     pyautogui.moveTo(hrInicialX, hrInicialY)

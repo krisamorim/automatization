@@ -2,34 +2,12 @@ import pyautogui
 from time import sleep
 pyautogui.FAILSAFE= False
 
+#exibir x e y do mouse em temo real
+print('Iniciando em 3 seg...')
+sleep(3)
+while True:
+    x, y = pyautogui.position()
+    print(f'Posição do mouse: x={x}, y={y}', end='\r')
 
-def altTab(tempo):
-    pyautogui.keyDown('alt')
-    sleep(tempo)
-    pyautogui.press('tab')
-    sleep(tempo)
-    pyautogui.keyUp('alt')
-
-def pausa():
-    altTab(.2)
-    optiX = int(input('------------------EM PAUSE----------------\n1- Continuar\n2- Sair\n'))
-    altTab(.2)
-    if optiX == 2:
-        exit()
-
-def ctrlC():
-    pyautogui.keyDown('ctrl')
-    pyautogui.press('c')
-    pyautogui.keyUp('ctrl')
-
-def ctrlV():
-    pyautogui.keyDown('ctrl')
-    pyautogui.press('v')
-    pyautogui.keyUp('ctrl')
-
-def posicaoMouse(time):
-    sleep(time)
-    print(pyautogui.position())
-    
-posicaoMouse(5)
-posicaoMouse(5)
+1849
+9911
