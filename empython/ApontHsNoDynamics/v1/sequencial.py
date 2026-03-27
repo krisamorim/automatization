@@ -92,13 +92,13 @@ for i in range(int(repeticaoVezes)):
 
     #clicar no campo da hora inicial
     pyautogui.click()
-    sleep(.7)
+    sleep(.5)
     pyautogui.press('tab', presses=2, interval=0.5)
-    sleep(1)
+    sleep(.6)
 
     print('Verificando hora final...')
     pyautogui.hotkey('ctrl','c') #copiando valor do campo
-    sleep(.7)
+    sleep(.5)
     #verificar valor da hora
     valorDahora = pyperclip.paste()
     if valorDahora[:2] == "12":
