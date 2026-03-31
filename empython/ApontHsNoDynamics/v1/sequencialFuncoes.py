@@ -47,6 +47,10 @@ def clickDataAddEntrada(valorAserVerificado, x, y):
         pyautogui.press('end', presses=4)       
         pyautogui.keyUp('ctrl')
         sleep(1)
+        pyautogui.moveTo(1555,2052)
+        print('rolando a tela para baixo...\n')
+        pyautogui.scroll(-800)
+        sleep(1)
         pyautogui.doubleClick(x,y) #clicando no texto "Status " para copiar o valor do campo
         sleep(.6)
         pyautogui.hotkey('ctrl','c') #copiando valor do campo
