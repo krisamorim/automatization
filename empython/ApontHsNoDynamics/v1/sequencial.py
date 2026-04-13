@@ -85,11 +85,11 @@ for i in range(int(repeticaoVezes)):
     sleep(.6)
     print('Clicando no botão criar entrada de hora...\n')
     pyautogui.click(btCriarEntradaX, btCriarEntradaY)
-    sleep(5)
+    sleep(4)
 
     print('Clicando na hora inicial...')
     pyautogui.moveTo(hrInicialX, hrInicialY)
-
+    sleep(1)
     #clicar no campo da hora inicial
     pyautogui.click()
     sleep(.5)
@@ -106,53 +106,47 @@ for i in range(int(repeticaoVezes)):
     else:
         pyautogui.write("17:00")
 
-    print('Preenchendo o trabalho..')
-    seqFun.tabAndWrite("trab", 2)
-
     print('Preenchendo o projeto..')
-    pyautogui.press('tab') #se remover o tab debaixo, remova essa linha
+    seqFun.tabAndWrite(seqVar.projeto, 5)
     sleep(0.5)
-    pyautogui.press('tab') #se remover o tab debaixo, remova essa linha
-    sleep(0.5)
-    pyautogui.press('tab') #se remover o tab debaixo, remova essa linha
-    sleep(0.5)
-    pyautogui.press('tab') #se remover o comentario da linha de baixo, remova essa linha
-    sleep(0.5)
-    # seqFun.tabAndWrite(seqVar.projeto, 4)
-    pyperclip.copy(seqVar.projeto.encode('utf-8').decode('utf-8')) #copiando o nome do projeto
-    sleep(0.5)
-    pyautogui.hotkey('ctrl','v')
-    sleep(2.5)
-    pyautogui.press('enter')
-    sleep(1)
+    
+    print('Preenchendo o Percentual ..')
+    seqFun.tabAndWrite("100", 2,"NoENter")
+    
+    print('Preenchendo o tipo trabalho..')
+    seqFun.tabAndWrite("trab", 1)
 
-    print('Preenchendo o resto..')
-    seqFun.tabAndWrite("100", 2,"NoENter   ")
+    print('Preenchendo o Reserva  ..')
     seqFun.tabAndWrite("sim", 1)
+    
+    print('Preenchendo o local presencial  ..')
     seqFun.tabAndWrite("prese", 1)
+
+    
+    sleep(0.7)
+    pyautogui.press('tab')
+    sleep(0.7)
     pyautogui.press('tab')
     sleep(0.7)
     pyautogui.press('tab')
 
     print('colando descrições..')
     pyperclip.copy(seqVar.descr.encode('utf-8').decode('utf-8')[:195]) #copiando até qualidade
-    sleep(0.7)
-    pyautogui.press('tab')
     sleep(0.4)
     pyautogui.hotkey('ctrl','v')
+    sleep(0.7)
+    pyautogui.press('tab')
 
 
     pyperclip.copy(seqVar.descr.encode('utf-8').decode('utf-8')) #copiando tudo
-    sleep(0.7)
-    pyautogui.press('tab')
     sleep(0.4)
     pyautogui.hotkey('ctrl','v')
     sleep(0.7)
+    pyautogui.press('tab')
+    sleep(0.4)
 
     pyperclip.copy(seqVar.descr.encode('utf-8').decode('utf-8')[:96]) #copiando até a palavra reunião
     sleep(0.7)
-    pyautogui.press('tab')
-    sleep(0.4)
     pyautogui.hotkey('ctrl','v')
     sleep(0.7)
 

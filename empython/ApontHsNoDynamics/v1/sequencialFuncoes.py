@@ -5,10 +5,10 @@ import sys
 import pyperclip
 
 def tabAndWrite(txt, tabs, NoEnter=""):
-    sleep(0.7)
+    sleep(1)
     for i in range(tabs):
         pyautogui.press('tab')
-    sleep(0.7)
+    sleep(1)
     pyautogui.write(txt)
    
    #verifica se a função recebeu valor em NoEnter
