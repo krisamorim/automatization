@@ -71,6 +71,7 @@ pyautogui.hotkey('ctrl','-')
 sleep(1)
 
 for i in range(int(repeticaoVezes)):
+    seqFun.speak(f'Executando {i + 1} de {repeticaoVezes}')
     #mover mouse para posição do botão de adicionar entrada
     print('Movendo para o botão de adicionar entrada...\n')
     pyautogui.moveTo(xx,yy)

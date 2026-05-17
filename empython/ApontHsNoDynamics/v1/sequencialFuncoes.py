@@ -3,6 +3,14 @@ from time import sleep
 import os
 import sys
 import pyperclip
+import pyttsx3
+
+
+def speak(text):
+    engine = pyttsx3.init()
+    engine.setProperty('rate', 200)  # Definir a velocidade da leitura
+    engine.say(text)
+    engine.runAndWait()
 
 def tabAndWrite(txt, tabs, NoEnter=""):
     sleep(1)

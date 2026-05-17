@@ -3,19 +3,16 @@
 import pyttsx3
 def speak(text):
     engine = pyttsx3.init()
-    engine.setProperty('rate', 150)  # Definir a velocidade da leitura
+    engine.setProperty('rate', 200)  # Definir a velocidade da leitura
     engine.say(text)
     engine.runAndWait()
 text = '''
-Como você pode ver, quando imprimimos df_logs['source'].value_counts(dropna=False), o resultado é armazenado em ordem decrescente com base na contagem de cada valor. Como alternativa, podemos ordenar o resultado em ordem alfabética com base nos nomes dos valores. Para fazer isso, podemos usar o método sort_index().
+Se soubermos tanto a média quanto a mediana, como devemos escolher qual usar como valor representativo? Bem, depende de qual delas é a melhor representante de um valor "típico" para o conjunto de dados.
 
-import pandas as pd
+A média não é um bom valor típico quando os dados com os quais você está trabalhando têm vários valores atípicos. Por exemplo, digamos que cinco funcionários em uma empresa têm salários de $30.000. Tanto a média como a mediana são iguais a $30.000.
 
-df_logs = pd.read_csv('/datasets/visit_log.csv')
+Então um diretor de marketing é contratado com um salário de $90.000. A média agora aumentou para $40.000, enquanto a mediana permanece $30.000.
 
-email_values = df_logs['email'].value_counts(dropna=True)
-
-print(email_values)
-
+Esse valor atípico torna a mediana um indicador melhor do salário típico do que a média.
 '''
 speak(text)

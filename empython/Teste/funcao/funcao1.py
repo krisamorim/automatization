@@ -1,6 +1,7 @@
 import pyautogui
 from time import sleep
 import pyperclip
+import pyttsx3
 
 # #mostrar posição do mouse na tela
 # def mostrarPosicaoMouse():
@@ -11,23 +12,29 @@ import pyperclip
 
 # mostrarPosicaoMouse()
 
-pyautogui.doubleClick(224,1512)
+# pyautogui.doubleClick(224,1512)
 
-#ctrl + c
-pyautogui.hotkey('ctrl','c')
-sleep(1)
+# #ctrl + c
+# pyautogui.hotkey('ctrl','c')
+# sleep(1)
 
-#salvar valo do clipboard na variavel clipbCtrlV
-clipbCtrlV = pyperclip.paste()
-print(f'Valor do clipboard: {clipbCtrlV}')
+# #salvar valo do clipboard na variavel clipbCtrlV
+# clipbCtrlV = pyperclip.paste()
+# print(f'Valor do clipboard: {clipbCtrlV}')
 
-#se valor de clipbCtrlV diferente "Status " então aguardar 3 segundos e repetir o processo se o valor for igual a "Status " então clicar na posição 224,1512
-while clipbCtrlV != "Status ":
-    print('Valor do clipboard diferente de "Status ", aguardando 2 segundos...')
-    sleep(2)
-    pyautogui.doubleClick(224,1512)
-    sleep(1)
-    pyautogui.hotkey('ctrl','c')
-    sleep(1)
-    clipbCtrlV = pyperclip.paste()
-    print(f'Valor do clipboard: {clipbCtrlV}')
+# #se valor de clipbCtrlV diferente "Status " então aguardar 3 segundos e repetir o processo se o valor for igual a "Status " então clicar na posição 224,1512
+# while clipbCtrlV != "Status ":
+#     print('Valor do clipboard diferente de "Status ", aguardando 2 segundos...')
+#     sleep(2)
+#     pyautogui.doubleClick(224,1512)
+#     sleep(1)
+#     pyautogui.hotkey('ctrl','c')
+#     sleep(1)
+#     clipbCtrlV = pyperclip.paste()
+#     print(f'Valor do clipboard: {clipbCtrlV}')
+
+def speak(text):
+    engine = pyttsx3.init()
+    engine.setProperty('rate', 200)  # Definir a velocidade da leitura
+    engine.say(text)
+    engine.runAndWait()

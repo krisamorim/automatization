@@ -2,34 +2,24 @@ import random
 import pyautogui
 from time import sleep
 
-pyautogui.FAILSAFE= False
 pyautogui.hotkey('alt', 'tab')
-
-#press L 3 times and wait 1 second
-for i in range(400):
-    pyautogui.press('l')
-    print(f'{i} L pressionado')
-
-    #se i for 100, 200, 300, wait 10 seconds
-    if i == 100 or i == 200 or i == 299:
-        sleep(10)
-
-    #se i for multiplo de 100, mostrar posição do mouse
-    print(f'i%100= {i%100}')
-    if i % 100 == 0:
-        pyautogui.moveTo(1788, 2189)
-        pyautogui.click()
-        x = random.randint(0, 4)
-        sleep(x)
-        pyautogui.write('vamoo, tap, tap, tap')
-        pyautogui.press('enter')
-
-    #clicar fora
-    pyautogui.moveTo(x=1448, y=1925)
-    pyautogui.click()
-    sleep(2)
-
-# #mostrar posição do mouse a cada 5 segundos
-# while True:
-#     sleep(5)
-#     print(pyautogui.position())
+sleep(1)
+historicoDevezes = []
+loopDowhile = 1
+while True:
+    #variavel que irá definir o valor do loop
+    vezes = random.randint(120, 170)
+    #verificar se o valor de vezes já existe no histórico, se existir, gerar um novo valor
+    while vezes in historicoDevezes:
+        print(f"Valor {vezes} já existe no histórico, gerando um novo valor...")
+        vezes = random.randint(120, 170)
+    historicoDevezes.append(vezes)
+    for i in range(vezes):
+        pyautogui.press('l')
+        print(f"Valor atual: {i} - Loop atual: {loopDowhile}", end='\r')
+        if i % 100 == 0:
+            espera = random.uniform(5, 10)
+            sleep(espera)
+            print(f"Esperando por {espera:.2f} segundos...")
+    loopDowhile += 1
+    
