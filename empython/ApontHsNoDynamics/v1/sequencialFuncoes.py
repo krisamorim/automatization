@@ -52,7 +52,7 @@ def clickDataAddEntrada(valorAserVerificado, x, y):
     while clipbCtrlV != valorAserVerificado:
         print('pressionando ctrl+end 3 vezes p/ descer a barra de rolagem vertical\n')
         pyautogui.keyDown('ctrl')
-        pyautogui.press('end', presses=4)       
+        pyautogui.press('end', presses=4, interval=0.7)       
         pyautogui.keyUp('ctrl')
         sleep(1)
         pyautogui.moveTo(1555,2052)
