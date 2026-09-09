@@ -48,6 +48,9 @@ def verificarTelaLiberada(palavra, x, y):
         pyautogui.hotkey('ctrl','c')
 
 def clickDataAddEntrada(valorAserVerificado, x, y):
+    #limpando o clipboard
+    pyperclip.copy('vazio')
+    
     clipbCtrlV = pyperclip.paste()
     while clipbCtrlV != valorAserVerificado:
         print('pressionando ctrl+end 3 vezes p/ descer a barra de rolagem vertical\n')
